@@ -1,4 +1,5 @@
 import React from "react";
+import { useLocation } from "wouter";
 import { motion, useScroll, useTransform, useInView, AnimatePresence } from "framer-motion";
 import { 
   ArrowRight, 
@@ -141,6 +142,7 @@ function StatsSection() {
 }
 
 export default function App() {
+  const [, setLocation] = useLocation();
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
   const [billing, setBilling] = React.useState<"monthly" | "annual">("monthly");
@@ -174,8 +176,8 @@ export default function App() {
           </nav>
 
           <div className="hidden md:flex items-center gap-4">
-            <Button variant="ghost" className="text-sm font-medium">Entrar</Button>
-            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full px-6">
+            <Button variant="ghost" className="text-sm font-medium" onClick={() => setLocation("/login")}>Entrar</Button>
+            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full px-6" onClick={() => setLocation("/login")}>
               Começar grátis
             </Button>
           </div>
@@ -194,8 +196,8 @@ export default function App() {
           <a href="#planos" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-medium border-b border-border pb-4">Planos</a>
           <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-medium border-b border-border pb-4">FAQ</a>
           <div className="flex flex-col gap-4 mt-8">
-            <Button variant="outline" className="w-full text-lg py-6">Entrar</Button>
-            <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 text-lg py-6 rounded-full">Começar grátis</Button>
+            <Button variant="outline" className="w-full text-lg py-6" onClick={() => { setMobileMenuOpen(false); setLocation("/login"); }}>Entrar</Button>
+            <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 text-lg py-6 rounded-full" onClick={() => { setMobileMenuOpen(false); setLocation("/login"); }}>Começar grátis</Button>
           </div>
         </div>
       )}
