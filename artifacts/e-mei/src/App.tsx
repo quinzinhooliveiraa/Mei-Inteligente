@@ -98,7 +98,10 @@ export default function App() {
 
       {/* Hero Section */}
       <section className="pt-24 pb-16 md:pt-48 md:pb-32 px-6 md:px-12 container mx-auto relative">
-        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] -z-10 pointer-events-none" />
+        {/* Animated orbs */}
+        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] -z-10 pointer-events-none animate-orb-drift" />
+        <div className="absolute top-1/2 right-1/4 w-[300px] h-[300px] bg-primary/6 rounded-full blur-[100px] -z-10 pointer-events-none animate-float-slow" style={{animationDelay:"2s"}} />
+        <div className="absolute bottom-10 left-10 w-[200px] h-[200px] bg-primary/5 rounded-full blur-[80px] -z-10 pointer-events-none animate-float-reverse" style={{animationDelay:"1s"}} />
         
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-8 items-center">
           <motion.div 
@@ -156,18 +159,18 @@ export default function App() {
             <div className="w-full h-full rounded-3xl overflow-hidden border border-border/50 bg-card/50 shadow-2xl backdrop-blur-sm relative">
               <img src={heroImage} alt="Dashboard App" className="w-full h-full object-cover opacity-90 mix-blend-screen" />
               
-              {/* Floating UI elements to make it feel like an app */}
-              <div className="absolute top-6 right-6 bg-card border border-border rounded-xl p-4 shadow-xl flex items-center gap-4 animate-in slide-in-from-right-8 duration-1000 delay-500">
+              {/* Floating UI elements — glass */}
+              <div className="absolute top-6 right-6 glass-strong rounded-2xl p-4 shadow-2xl flex items-center gap-4 animate-float" style={{animationDelay:"0.5s"}}>
                 <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
                   <CheckCircle2 size={20} />
                 </div>
                 <div>
-                  <p className="text-sm font-bold">DAS Pago</p>
+                  <p className="text-sm font-medium">DAS Pago</p>
                   <p className="text-xs text-muted-foreground">Mês de Maio</p>
                 </div>
               </div>
 
-              <div className="absolute bottom-8 left-6 right-6 bg-background/90 backdrop-blur-md border border-border rounded-xl p-5 shadow-xl animate-in slide-in-from-bottom-8 duration-1000 delay-700">
+              <div className="absolute bottom-8 left-6 right-6 glass-strong rounded-2xl p-5 shadow-2xl animate-float-reverse" style={{animationDelay:"1s"}}>
                 <p className="text-sm text-muted-foreground mb-1">Receita Mensal</p>
                 <div className="flex items-end justify-between">
                   <p className="text-2xl font-bold">R$ 4.250<span className="text-sm text-muted-foreground font-normal">,00</span></p>
@@ -176,8 +179,8 @@ export default function App() {
                     +12%
                   </div>
                 </div>
-                <div className="w-full h-2 bg-secondary rounded-full mt-4 overflow-hidden">
-                  <div className="h-full bg-primary w-[65%] rounded-full" />
+                <div className="w-full h-2 bg-white/10 rounded-full mt-4 overflow-hidden">
+                  <div className="h-full bg-primary w-[65%] rounded-full shadow-[0_0_8px_rgba(124,206,32,0.6)]" />
                 </div>
               </div>
             </div>
@@ -232,9 +235,10 @@ export default function App() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-card border border-border p-6 md:p-8 rounded-3xl hover:border-primary/50 transition-colors group"
+                whileHover={{ y: -6, transition: { duration: 0.25 } }}
+                className="glass p-6 md:p-8 rounded-3xl hover:border-primary/30 hover:shadow-[0_8px_40px_rgba(124,206,32,0.10)] transition-shadow group"
               >
-                <div className="w-12 h-12 bg-secondary rounded-2xl flex items-center justify-center text-primary mb-6 group-hover:scale-110 group-hover:bg-primary/20 transition-all">
+                <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mb-6 group-hover:scale-110 group-hover:bg-primary/20 transition-all">
                   {feature.icon}
                 </div>
                 <h3 className="text-xl font-medium tracking-wide mb-3">{feature.title}</h3>
@@ -286,7 +290,7 @@ export default function App() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7 }}
-                className="bg-card border border-border rounded-3xl p-8 shadow-2xl relative"
+                className="glass rounded-3xl p-8 shadow-2xl relative animate-float-slow"
               >
                 <div className="flex items-center justify-between mb-8 pb-6 border-b border-border">
                   <div>
@@ -345,7 +349,8 @@ export default function App() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-card border border-border rounded-3xl p-8 lg:p-10"
+              whileHover={{ y: -4, transition: { duration: 0.2 } }}
+              className="glass rounded-3xl p-8 lg:p-10"
             >
               <h3 className="text-2xl font-light tracking-wider mb-2">Básico</h3>
               <p className="text-muted-foreground mb-6">Para quem está começando</p>
@@ -386,7 +391,8 @@ export default function App() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="bg-card border-2 border-primary rounded-3xl p-8 lg:p-10 relative"
+              whileHover={{ y: -4, transition: { duration: 0.2 } }}
+              className="glass-green rounded-3xl p-8 lg:p-10 relative animate-glow-pulse"
             >
               <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-bold uppercase tracking-wider">
                 Recomendado
@@ -459,7 +465,8 @@ export default function App() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-secondary/20 border border-border p-8 rounded-3xl"
+                whileHover={{ y: -6, transition: { duration: 0.25 } }}
+                className="glass p-8 rounded-3xl hover:shadow-[0_8px_40px_rgba(124,206,32,0.08)] transition-shadow"
               >
                 <div className="flex gap-1 text-primary mb-6">
                   {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="currentColor" />)}
@@ -511,7 +518,7 @@ export default function App() {
                 a: "Nós geramos a guia e o código Pix/boleto para você realizar o pagamento no seu banco. Não debitamos valores automaticamente da sua conta para pagamento de impostos."
               }
             ].map((faq, i) => (
-              <AccordionItem key={i} value={`item-${i}`} className="bg-card border border-border rounded-xl px-6">
+              <AccordionItem key={i} value={`item-${i}`} className="glass rounded-xl px-6">
                 <AccordionTrigger className="text-left font-semibold text-lg hover:no-underline py-6">
                   {faq.q}
                 </AccordionTrigger>
@@ -532,7 +539,7 @@ export default function App() {
           <p className="text-base md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
             Junte-se a milhares de empreendedores brasileiros que simplificaram a gestão do seu MEI.
           </p>
-          <Button className="bg-primary text-primary-foreground hover:bg-primary/90 h-16 px-10 text-xl font-bold rounded-full shadow-[0_0_30px_rgba(124,206,32,0.2)] hover:scale-105 transition-transform">
+          <Button className="bg-primary text-primary-foreground hover:bg-primary/90 h-16 px-10 text-xl font-bold rounded-full animate-glow-pulse hover:scale-105 transition-transform">
             Criar minha conta grátis
           </Button>
           <p className="mt-4 text-sm text-muted-foreground">Leva menos de 2 minutos. Não pedimos cartão de crédito.</p>
