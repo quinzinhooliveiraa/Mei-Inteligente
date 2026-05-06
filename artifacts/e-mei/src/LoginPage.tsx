@@ -42,7 +42,10 @@ export default function LoginPage() {
     const e = validate();
     if (Object.keys(e).length) { setErrors(e); return; }
     setLoading(true);
-    setTimeout(() => setLoading(false), 1500);
+    setTimeout(() => {
+      setLoading(false);
+      setLocation(tab === "signup" ? "/onboarding" : "/");
+    }, 1200);
   }
 
   return (
