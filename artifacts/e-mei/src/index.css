@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 @plugin "@tailwindcss/typography";
@@ -57,7 +57,7 @@
   --color-sidebar-accent-border: var(--sidebar-accent-border);
   --color-sidebar-ring: hsl(var(--sidebar-ring));
 
-  --font-sans: 'Outfit', sans-serif;
+  --font-sans: 'Space Grotesk', sans-serif;
   --font-serif: var(--app-font-serif);
   --font-mono: var(--app-font-mono);
 
@@ -128,7 +128,7 @@
   --chart-4: 0 1.5% 50%;
   --chart-5: 0 1.5% 60%;
 
-  --app-font-sans: 'Outfit', sans-serif;
+  --app-font-sans: 'Space Grotesk', sans-serif;
   --app-font-serif: Georgia, serif;
   --app-font-mono: Menlo, monospace;
   

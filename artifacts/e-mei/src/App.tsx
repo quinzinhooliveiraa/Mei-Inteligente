@@ -59,7 +59,7 @@ export default function App() {
             <div className="w-8 h-8 rounded bg-primary flex items-center justify-center text-primary-foreground font-bold text-xl leading-none">
               e
             </div>
-            <span className="font-bold text-2xl tracking-tight">e-mei</span>
+            <span className="font-light text-2xl tracking-widest">e-mei</span>
           </div>
           
           <nav className="hidden md:flex items-center gap-8">
@@ -115,7 +115,7 @@ export default function App() {
               MEI inteligente
             </motion.div>
             
-            <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-[1.1]">
+            <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-light tracking-wide mb-6 leading-[1.1]">
               O controle do seu MEI,<br/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-green-300">sem burocracia.</span>
             </motion.h1>
@@ -189,7 +189,7 @@ export default function App() {
       <section id="funcionalidades" className="py-24 bg-secondary/30 relative">
         <div className="container mx-auto px-6 md:px-12">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">Tudo que seu negócio precisa. <br/><span className="text-primary">Nada que não precisa.</span></h2>
+            <h2 className="text-3xl md:text-5xl font-light tracking-wide mb-6">Tudo que seu negócio precisa. <br/><span className="text-primary">Nada que não precisa.</span></h2>
             <p className="text-lg text-muted-foreground">Desenhado especificamente para as necessidades do Microempreendedor Individual no Brasil.</p>
           </div>
 
@@ -237,7 +237,7 @@ export default function App() {
                 <div className="w-12 h-12 bg-secondary rounded-2xl flex items-center justify-center text-primary mb-6 group-hover:scale-110 group-hover:bg-primary/20 transition-all">
                   {feature.icon}
                 </div>
-                <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
+                <h3 className="text-xl font-medium tracking-wide mb-3">{feature.title}</h3>
                 <p className="text-muted-foreground leading-relaxed">{feature.desc}</p>
               </motion.div>
             ))}
@@ -250,7 +250,7 @@ export default function App() {
         <div className="container mx-auto px-6 md:px-12">
           <div className="flex flex-col lg:flex-row gap-16 items-center">
             <div className="lg:w-1/2">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">Simplifique sua rotina em <span className="text-primary">3 passos</span></h2>
+              <h2 className="text-4xl md:text-5xl font-light tracking-wide mb-6">Simplifique sua rotina em <span className="text-primary">3 passos</span></h2>
               <p className="text-lg text-muted-foreground mb-12">Deixe a burocracia com a gente e foque no que você faz de melhor: o seu trabalho.</p>
               
               <div className="space-y-12">
@@ -272,7 +272,7 @@ export default function App() {
                       {item.step}
                     </div>
                     <div>
-                      <h4 className="text-xl font-bold mb-2">{item.title}</h4>
+                      <h4 className="text-xl font-medium tracking-wide mb-2">{item.title}</h4>
                       <p className="text-muted-foreground">{item.desc}</p>
                     </div>
                   </motion.div>
@@ -335,7 +335,7 @@ export default function App() {
       <section id="planos" className="py-24 bg-secondary/30">
         <div className="container mx-auto px-6 md:px-12">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">Planos simples,<br/>como deve ser.</h2>
+            <h2 className="text-3xl md:text-5xl font-light tracking-wide mb-6">Planos simples,<br/>como deve ser.</h2>
             <p className="text-lg text-muted-foreground">Sem taxas escondidas. Cancele quando quiser.</p>
           </div>
 
@@ -347,7 +347,7 @@ export default function App() {
               viewport={{ once: true }}
               className="bg-card border border-border rounded-3xl p-8 lg:p-10"
             >
-              <h3 className="text-2xl font-bold mb-2">Básico</h3>
+              <h3 className="text-2xl font-light tracking-wider mb-2">Básico</h3>
               <p className="text-muted-foreground mb-6">Para quem está começando</p>
               <div className="mb-8">
                 <span className="text-5xl font-bold">R$ 0</span>
@@ -391,7 +391,7 @@ export default function App() {
               <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-bold uppercase tracking-wider">
                 Recomendado
               </div>
-              <h3 className="text-2xl font-bold mb-2">Pro</h3>
+              <h3 className="text-2xl font-light tracking-wider mb-2">Pro</h3>
               <p className="text-muted-foreground mb-6">O pacote completo para seu MEI</p>
               <div className="mb-8">
                 <span className="text-5xl font-bold">R$ 29<span className="text-2xl">,90</span></span>
@@ -430,7 +430,7 @@ export default function App() {
       {/* Testimonials */}
       <section className="py-24">
         <div className="container mx-auto px-6 md:px-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">Quem usa, recomenda.</h2>
+          <h2 className="text-3xl md:text-4xl font-light tracking-wide text-center mb-16">Quem usa, recomenda.</h2>
           
           <div className="grid md:grid-cols-3 gap-8">
             {[
@@ -484,7 +484,7 @@ export default function App() {
       <section id="faq" className="py-24 bg-secondary/30">
         <div className="container mx-auto px-6 md:px-12 max-w-3xl">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Dúvidas Frequentes</h2>
+            <h2 className="text-3xl md:text-4xl font-light tracking-wide mb-4">Dúvidas Frequentes</h2>
             <p className="text-muted-foreground">Tudo o que você precisa saber sobre o e-mei.</p>
           </div>
 
@@ -528,7 +528,7 @@ export default function App() {
       <section className="py-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-primary/5"></div>
         <div className="container mx-auto px-6 md:px-12 relative z-10 text-center max-w-4xl">
-          <h2 className="text-4xl md:text-6xl font-bold mb-6">Pronto para ter o controle do seu negócio?</h2>
+          <h2 className="text-4xl md:text-6xl font-light tracking-wide mb-6">Pronto para ter o controle do seu negócio?</h2>
           <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
             Junte-se a milhares de empreendedores brasileiros que simplificaram a gestão do seu MEI.
           </p>
@@ -548,7 +548,7 @@ export default function App() {
                 <div className="w-8 h-8 rounded bg-primary flex items-center justify-center text-primary-foreground font-bold text-xl leading-none">
                   e
                 </div>
-                <span className="font-bold text-2xl tracking-tight">e-mei</span>
+                <span className="font-light text-2xl tracking-widest">e-mei</span>
               </div>
               <p className="text-muted-foreground text-sm leading-relaxed mb-6">
                 A plataforma inteligente que descomplica a vida do Microempreendedor Individual no Brasil.
