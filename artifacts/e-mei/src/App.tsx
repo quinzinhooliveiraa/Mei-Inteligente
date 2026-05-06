@@ -1,5 +1,5 @@
 import React from "react";
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
+import { motion, useScroll, useTransform, useInView, AnimatePresence } from "framer-motion";
 import { 
   ArrowRight, 
   CheckCircle2, 
@@ -143,6 +143,7 @@ function StatsSection() {
 export default function App() {
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
+  const [billing, setBilling] = React.useState<"monthly" | "annual">("monthly");
   
   React.useEffect(() => {
     const handleScroll = () => {
@@ -444,10 +445,59 @@ export default function App() {
       {/* Pricing Section */}
       <section id="planos" className="py-24 bg-secondary/30">
         <div className="container mx-auto px-6 md:px-12">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-center max-w-3xl mx-auto mb-10">
             <h2 className="text-2xl md:text-5xl font-light tracking-wide mb-6">Planos simples, como deve ser.</h2>
             <p className="text-lg text-muted-foreground">Sem taxas escondidas. Cancele quando quiser.</p>
           </div>
+
+          {/* Billing Toggle */}
+          <div className="flex items-center justify-center gap-4 mb-12">
+            <button
+              onClick={() => setBilling("monthly")}
+              className={`text-sm font-medium transition-colors ${billing === "monthly" ? "text-foreground" : "text-muted-foreground"}`}
+            >
+              Mensal
+            </button>
+            <button
+              onClick={() => setBilling(billing === "monthly" ? "annual" : "monthly")}
+              className="relative w-14 h-7 rounded-full bg-secondary border border-border transition-colors focus:outline-none"
+              aria-label="Alternar entre mensal e anual"
+            >
+              <motion.div
+                className="absolute top-1 w-5 h-5 rounded-full bg-primary shadow-sm"
+                animate={{ left: billing === "annual" ? "calc(100% - 1.5rem)" : "0.25rem" }}
+                transition={{ type: "spring", stiffness: 500, damping: 30 }}
+              />
+            </button>
+            <button
+              onClick={() => setBilling("annual")}
+              className={`text-sm font-medium transition-colors flex items-center gap-2 ${billing === "annual" ? "text-foreground" : "text-muted-foreground"}`}
+            >
+              Anual
+              <AnimatePresence>
+                {billing === "annual" && (
+                  <motion.span
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.8 }}
+                    className="bg-primary text-primary-foreground text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider"
+                  >
+                    −20%
+                  </motion.span>
+                )}
+              </AnimatePresence>
+            </button>
+          </div>
+
+          {billing === "annual" && (
+            <motion.p
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-center text-sm text-muted-foreground mb-8"
+            >
+              Cobrado anualmente — economize <span className="text-primary font-medium">R$ 71,76/ano</span>
+            </motion.p>
+          )}
 
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {/* Free Plan */}
@@ -505,10 +555,48 @@ export default function App() {
               </div>
               <h3 className="text-2xl font-light tracking-wider mb-2">Pro</h3>
               <p className="text-muted-foreground mb-6">O pacote completo para seu MEI</p>
-              <div className="mb-8">
-                <span className="text-5xl font-bold">R$ 29<span className="text-2xl">,90</span></span>
-                <span className="text-muted-foreground">/mês</span>
+              <div className="mb-2 relative h-16 overflow-hidden">
+                <AnimatePresence mode="wait">
+                  {billing === "monthly" ? (
+                    <motion.div
+                      key="monthly"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -20 }}
+                      transition={{ duration: 0.25 }}
+                      className="absolute inset-0 flex items-center gap-1"
+                    >
+                      <span className="text-5xl font-bold">R$ 29<span className="text-2xl">,90</span></span>
+                      <span className="text-muted-foreground">/mês</span>
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key="annual"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -20 }}
+                      transition={{ duration: 0.25 }}
+                      className="absolute inset-0 flex items-center gap-1"
+                    >
+                      <span className="text-5xl font-bold">R$ 23<span className="text-2xl">,90</span></span>
+                      <span className="text-muted-foreground">/mês</span>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
+              <AnimatePresence>
+                {billing === "annual" && (
+                  <motion.p
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    className="text-xs text-muted-foreground mb-6"
+                  >
+                    R$ 286,80/ano — 2 meses grátis
+                  </motion.p>
+                )}
+              </AnimatePresence>
+              {billing === "monthly" && <div className="mb-6" />}
               <ul className="space-y-4 mb-8">
                 <li className="flex items-center gap-3 text-sm">
                   <CheckCircle2 className="text-primary shrink-0" size={18} />
@@ -532,7 +620,7 @@ export default function App() {
                 </li>
               </ul>
               <Button className="w-full h-12 rounded-full text-base font-semibold bg-primary text-primary-foreground hover:bg-primary/90 shadow-[0_0_20px_rgba(124,206,32,0.3)]">
-                Assinar Pro
+                {billing === "annual" ? "Assinar Pro Anual" : "Assinar Pro"}
               </Button>
             </motion.div>
           </div>
