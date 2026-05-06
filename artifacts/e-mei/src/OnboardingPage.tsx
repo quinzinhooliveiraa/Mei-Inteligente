@@ -163,7 +163,7 @@ export default function OnboardingPage() {
       setDirection(1);
       setStep(step + 1);
     } else {
-      setLocation("/");
+      setLocation("/app");
     }
   }
 
