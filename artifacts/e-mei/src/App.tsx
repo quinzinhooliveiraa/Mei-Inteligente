@@ -1,5 +1,5 @@
 import React from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { 
   ArrowRight, 
   CheckCircle2, 
@@ -22,6 +22,28 @@ import {
 } from "@/components/ui/accordion";
 import heroImage from "./assets/hero-illustration.png";
 
+function useCounter(target: number, duration: number, inView: boolean) {
+  const [count, setCount] = React.useState(0);
+  React.useEffect(() => {
+    if (!inView) return;
+    setCount(0);
+    const steps = Math.ceil(duration / 16);
+    let current = 0;
+    const increment = target / steps;
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        setCount(target);
+        clearInterval(timer);
+      } else {
+        setCount(Math.floor(current));
+      }
+    }, 16);
+    return () => clearInterval(timer);
+  }, [inView, target, duration]);
+  return count;
+}
+
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } }
@@ -36,6 +58,87 @@ const staggerContainer = {
     }
   }
 };
+
+function StatBar({ pct, delay = 0, inView }: { pct: number; delay?: number; inView: boolean }) {
+  return (
+    <div className="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
+      <motion.div
+        className="h-full bg-primary rounded-full shadow-[0_0_8px_rgba(124,206,32,0.5)]"
+        initial={{ width: 0 }}
+        animate={inView ? { width: `${pct}%` } : { width: 0 }}
+        transition={{ duration: 1.4, delay, ease: [0.22, 1, 0.36, 1] }}
+      />
+    </div>
+  );
+}
+
+function StatsSection() {
+  const ref = React.useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-80px" });
+
+  const meis = useCounter(10000, 1800, inView);
+  const sat = useCounter(98, 1400, inView);
+  const min = useCounter(2, 1000, inView);
+  const notas = useCounter(500000, 2000, inView);
+
+  const stats = [
+    {
+      value: meis.toLocaleString("pt-BR"),
+      suffix: "+",
+      label: "MEIs ativos na plataforma",
+      pct: 82,
+      delay: 0,
+    },
+    {
+      value: sat,
+      suffix: "%",
+      label: "de satisfação dos usuários",
+      pct: 98,
+      delay: 0.1,
+    },
+    {
+      value: notas.toLocaleString("pt-BR"),
+      suffix: "+",
+      label: "notas fiscais emitidas",
+      pct: 70,
+      delay: 0.2,
+    },
+    {
+      value: min,
+      suffix: " min",
+      label: "para completar o cadastro",
+      pct: 15,
+      delay: 0.3,
+    },
+  ];
+
+  return (
+    <section ref={ref} className="py-16 md:py-20">
+      <div className="container mx-auto px-6 md:px-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+          {stats.map((s, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 24 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: s.delay, ease: [0.22, 1, 0.36, 1] }}
+              className="glass rounded-2xl p-5 md:p-7 flex flex-col gap-4"
+            >
+              <div>
+                <p className="text-3xl md:text-4xl font-light tracking-tight text-foreground">
+                  {s.value}
+                  <span className="text-primary">{s.suffix}</span>
+                </p>
+                <p className="text-xs md:text-sm text-muted-foreground mt-1 leading-snug">{s.label}</p>
+              </div>
+              <StatBar pct={s.pct} delay={s.delay + 0.3} inView={inView} />
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export default function App() {
   const [isScrolled, setIsScrolled] = React.useState(false);
@@ -187,6 +290,9 @@ export default function App() {
           </motion.div>
         </div>
       </section>
+
+      {/* Stats Section */}
+      <StatsSection />
 
       {/* Features Section */}
       <section id="funcionalidades" className="py-16 md:py-24 bg-secondary/30 relative">
