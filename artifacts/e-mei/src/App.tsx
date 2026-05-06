@@ -97,17 +97,17 @@ export default function App() {
       )}
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 md:pt-48 md:pb-32 px-6 md:px-12 container mx-auto relative">
+      <section className="pt-24 pb-16 md:pt-48 md:pb-32 px-6 md:px-12 container mx-auto relative">
         <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] -z-10 pointer-events-none" />
         
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-8 items-center">
           <motion.div 
             initial="hidden"
             animate="visible"
             variants={staggerContainer}
             className="max-w-2xl"
           >
-            <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/50 border border-border/50 text-primary text-sm font-medium mb-6">
+            <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/50 border border-border/50 text-primary text-sm font-medium mb-5">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
@@ -115,34 +115,34 @@ export default function App() {
               MEI inteligente
             </motion.div>
             
-            <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-light tracking-wide mb-6 leading-[1.1]">
-              O controle do seu MEI,<br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-green-300">sem burocracia.</span>
+            <motion.h1 variants={fadeInUp} className="text-[2.1rem] leading-[1.2] md:text-7xl font-light tracking-wide mb-5 md:leading-[1.1]">
+              O controle do seu MEI,{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-green-300 whitespace-nowrap">sem burocracia.</span>
             </motion.h1>
             
-            <motion.p variants={fadeInUp} className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed max-w-xl">
+            <motion.p variants={fadeInUp} className="text-base md:text-xl text-muted-foreground mb-7 leading-relaxed max-w-xl">
               Emita notas, pague seu DAS, controle receitas e evite multas. Tudo em um só lugar, feito para quem não tem tempo a perder.
             </motion.p>
             
-            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4">
-              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 h-14 px-8 text-lg font-semibold rounded-full group">
+            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-3">
+              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 h-13 px-7 text-base md:text-lg font-semibold rounded-full group">
                 Começar grátis
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button variant="outline" className="h-14 px-8 text-lg font-medium rounded-full border-border hover:bg-secondary">
+              <Button variant="outline" className="h-13 px-7 text-base md:text-lg font-medium rounded-full border-border hover:bg-secondary">
                 Ver como funciona
               </Button>
             </motion.div>
 
-            <motion.div variants={fadeInUp} className="mt-10 flex items-center gap-4 text-sm text-muted-foreground">
-              <div className="flex -space-x-2">
+            <motion.div variants={fadeInUp} className="mt-8 flex items-center gap-3 text-sm text-muted-foreground">
+              <div className="flex -space-x-2 shrink-0">
                 {[1,2,3,4].map(i => (
                   <div key={i} className="w-8 h-8 rounded-full border-2 border-background bg-secondary flex items-center justify-center overflow-hidden">
                     <img src={`https://i.pravatar.cc/100?img=${i+10}`} alt="User" />
                   </div>
                 ))}
               </div>
-              <p>Junte-se a mais de <strong className="text-foreground">10.000</strong> MEIs no Brasil.</p>
+              <p>Mais de <strong className="text-foreground">10.000</strong> MEIs no Brasil.</p>
             </motion.div>
           </motion.div>
 
@@ -150,7 +150,7 @@ export default function App() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative lg:ml-auto w-full max-w-lg aspect-square lg:aspect-[4/3] xl:aspect-square"
+            className="relative lg:ml-auto w-full max-w-lg aspect-[4/3] md:aspect-square lg:aspect-[4/3] xl:aspect-square"
           >
             <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-3xl transform rotate-3 scale-105 -z-10" />
             <div className="w-full h-full rounded-3xl overflow-hidden border border-border/50 bg-card/50 shadow-2xl backdrop-blur-sm relative">
@@ -186,11 +186,11 @@ export default function App() {
       </section>
 
       {/* Features Section */}
-      <section id="funcionalidades" className="py-24 bg-secondary/30 relative">
+      <section id="funcionalidades" className="py-16 md:py-24 bg-secondary/30 relative">
         <div className="container mx-auto px-6 md:px-12">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-5xl font-light tracking-wide mb-6">Tudo que seu negócio precisa. <br/><span className="text-primary">Nada que não precisa.</span></h2>
-            <p className="text-lg text-muted-foreground">Desenhado especificamente para as necessidades do Microempreendedor Individual no Brasil.</p>
+          <div className="text-center max-w-3xl mx-auto mb-10 md:mb-16">
+            <h2 className="text-2xl md:text-5xl font-light tracking-wide mb-4 md:mb-6">Tudo que seu negócio precisa — <span className="text-primary">nada que não precisa.</span></h2>
+            <p className="text-base md:text-lg text-muted-foreground">Desenhado especificamente para as necessidades do Microempreendedor Individual no Brasil.</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -232,7 +232,7 @@ export default function App() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-card border border-border p-8 rounded-3xl hover:border-primary/50 transition-colors group"
+                className="bg-card border border-border p-6 md:p-8 rounded-3xl hover:border-primary/50 transition-colors group"
               >
                 <div className="w-12 h-12 bg-secondary rounded-2xl flex items-center justify-center text-primary mb-6 group-hover:scale-110 group-hover:bg-primary/20 transition-all">
                   {feature.icon}
@@ -246,11 +246,11 @@ export default function App() {
       </section>
 
       {/* How it works */}
-      <section id="como-funciona" className="py-32 relative overflow-hidden">
+      <section id="como-funciona" className="py-16 md:py-32 relative overflow-hidden">
         <div className="container mx-auto px-6 md:px-12">
           <div className="flex flex-col lg:flex-row gap-16 items-center">
             <div className="lg:w-1/2">
-              <h2 className="text-4xl md:text-5xl font-light tracking-wide mb-6">Simplifique sua rotina em <span className="text-primary">3 passos</span></h2>
+              <h2 className="text-2xl md:text-5xl font-light tracking-wide mb-5">Simplifique sua rotina em <span className="text-primary">3 passos</span></h2>
               <p className="text-lg text-muted-foreground mb-12">Deixe a burocracia com a gente e foque no que você faz de melhor: o seu trabalho.</p>
               
               <div className="space-y-12">
@@ -335,7 +335,7 @@ export default function App() {
       <section id="planos" className="py-24 bg-secondary/30">
         <div className="container mx-auto px-6 md:px-12">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-5xl font-light tracking-wide mb-6">Planos simples,<br/>como deve ser.</h2>
+            <h2 className="text-2xl md:text-5xl font-light tracking-wide mb-6">Planos simples, como deve ser.</h2>
             <p className="text-lg text-muted-foreground">Sem taxas escondidas. Cancele quando quiser.</p>
           </div>
 
@@ -428,11 +428,11 @@ export default function App() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-24">
+      <section className="py-16 md:py-24">
         <div className="container mx-auto px-6 md:px-12">
-          <h2 className="text-3xl md:text-4xl font-light tracking-wide text-center mb-16">Quem usa, recomenda.</h2>
+          <h2 className="text-2xl md:text-4xl font-light tracking-wide text-center mb-10 md:mb-16">Quem usa, recomenda.</h2>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
             {[
               {
                 name: "Mariana Silva",
@@ -481,7 +481,7 @@ export default function App() {
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="py-24 bg-secondary/30">
+      <section id="faq" className="py-16 md:py-24 bg-secondary/30">
         <div className="container mx-auto px-6 md:px-12 max-w-3xl">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-light tracking-wide mb-4">Dúvidas Frequentes</h2>
@@ -525,11 +525,11 @@ export default function App() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-32 relative overflow-hidden">
+      <section className="py-20 md:py-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-primary/5"></div>
         <div className="container mx-auto px-6 md:px-12 relative z-10 text-center max-w-4xl">
-          <h2 className="text-4xl md:text-6xl font-light tracking-wide mb-6">Pronto para ter o controle do seu negócio?</h2>
-          <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
+          <h2 className="text-2xl md:text-6xl font-light tracking-wide mb-6">Pronto para ter o controle do seu negócio?</h2>
+          <p className="text-base md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
             Junte-se a milhares de empreendedores brasileiros que simplificaram a gestão do seu MEI.
           </p>
           <Button className="bg-primary text-primary-foreground hover:bg-primary/90 h-16 px-10 text-xl font-bold rounded-full shadow-[0_0_30px_rgba(124,206,32,0.2)] hover:scale-105 transition-transform">
