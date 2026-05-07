@@ -97,38 +97,45 @@ function StatsSection() {
   const ref = React.useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
-  const meis = useCounter(10000, 1800, inView);
-  const sat = useCounter(98, 1400, inView);
-  const min = useCounter(2, 1000, inView);
-  const notas = useCounter(500000, 2000, inView);
+  const count126 = useCounter(126, 1800, inView);
+  const count38 = useCounter(38, 1600, inView);
+  const count717 = useCounter(717, 2000, inView);
 
   const stats = [
     {
-      value: meis.toLocaleString("pt-BR"),
-      suffix: "+",
-      label: "MEIs ativos na plataforma",
-      pct: 82,
+      prefix: "",
+      value: (count126 / 10).toFixed(1).replace(".", ","),
+      suffix: " milhões",
+      label: "de MEIs ativos no Brasil hoje",
+      note: "Fonte: Receita Federal 2025",
+      pct: 90,
       delay: 0,
     },
     {
-      value: sat,
-      suffix: "%",
-      label: "de satisfação dos usuários",
-      pct: 98,
+      prefix: "",
+      value: (count38 / 10).toFixed(1).replace(".", ","),
+      suffix: " milhões",
+      label: "de novos MEIs abertos em 2025",
+      note: "Crescimento recorde no país",
+      pct: 62,
       delay: 0.1,
     },
     {
-      value: notas.toLocaleString("pt-BR"),
-      suffix: "+",
-      label: "notas fiscais emitidas",
-      pct: 70,
+      prefix: "R$",
+      value: count717.toLocaleString("pt-BR"),
+      suffix: " bi",
+      label: "movimentados por micro e pequenos negócios",
+      note: "Impacto direto no PIB brasileiro",
+      pct: 77,
       delay: 0.2,
     },
     {
-      value: min,
-      suffix: " min",
-      label: "para completar o cadastro",
-      pct: 15,
+      prefix: "",
+      value: "1 em 3",
+      suffix: "",
+      label: "MEIs encerram por falta de controle — não por falta de clientes",
+      note: "A organização faz toda a diferença",
+      pct: 33,
       delay: 0.3,
     },
   ];
@@ -146,16 +153,124 @@ function StatsSection() {
               className="glass rounded-2xl p-5 md:p-7 flex flex-col gap-4"
             >
               <div>
-                <p className="text-3xl md:text-4xl font-light tracking-tight text-foreground">
-                  {s.value}
-                  <span className="text-primary">{s.suffix}</span>
+                <p className="text-2xl md:text-3xl font-light tracking-tight text-foreground">
+                  <span className="text-muted-foreground text-base">{s.prefix}</span>
+                  <span className="text-primary">{s.value}</span>
+                  <span className="text-base md:text-lg">{s.suffix}</span>
                 </p>
                 <p className="text-xs md:text-sm text-muted-foreground mt-1 leading-snug">{s.label}</p>
+                <p className="text-[10px] text-muted-foreground/50 mt-1 italic">{s.note}</p>
               </div>
               <StatBar pct={s.pct} delay={s.delay + 0.3} inView={inView} />
             </motion.div>
           ))}
         </div>
+      </div>
+    </section>
+  );
+}
+
+function RealidadeSection() {
+  const ref = React.useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-80px" });
+
+  return (
+    <section ref={ref} className="py-16 md:py-28 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/3 to-transparent pointer-events-none" />
+
+      <div className="container mx-auto px-6 md:px-12">
+        {/* Pergunta provocativa */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7 }}
+          className="text-center max-w-4xl mx-auto mb-14 md:mb-20"
+        >
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-sm font-medium mb-6">
+            A realidade de quem empreende no Brasil
+          </div>
+          <h2 className="text-2xl md:text-5xl font-light tracking-wide mb-6 leading-[1.25]">
+            Seu negócio realmente dá lucro —{" "}
+            <span className="text-primary">ou apenas movimenta dinheiro?</span>
+          </h2>
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            Muitos MEIs faturam bem e ainda sentem que o dinheiro nunca sobra. O problema quase sempre não é falta de vendas.
+          </p>
+        </motion.div>
+
+        {/* Cards de problema */}
+        <div className="grid md:grid-cols-3 gap-6 mb-12 md:mb-16">
+          {[
+            {
+              icon: "⚠️",
+              stat: "DAS em atraso",
+              desc: "Boa parte dos MEIs acumula guias em aberto sem perceber — gerando juros, multas e risco de exclusão do Simples.",
+            },
+            {
+              icon: "📉",
+              stat: "Fecho por descontrole",
+              desc: "Muitos negócios encerram por falta de planejamento financeiro e gestão — não por ausência de clientes ou mercado.",
+            },
+            {
+              icon: "🤷",
+              stat: "\"Quanto eu lucro?\"",
+              desc: "A maioria dos MEIs não consegue responder com precisão se o negócio dá lucro real ou apenas mantém as contas girando.",
+            },
+          ].map((p, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 24 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: i * 0.12 }}
+              className="glass rounded-3xl p-7 border border-border/50 hover:border-primary/20 transition-colors"
+            >
+              <div className="text-3xl mb-4">{p.icon}</div>
+              <p className="text-lg font-semibold text-foreground mb-3">{p.stat}</p>
+              <p className="text-muted-foreground text-sm leading-relaxed">{p.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Frases estratégicas */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto mb-12">
+          {[
+            "Faturamento alto não significa lucro.",
+            "Muitos MEIs fecham por falta de organização.",
+            "Entender seu negócio é tão importante quanto vender.",
+          ].map((frase, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 16 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.45 + i * 0.1 }}
+              className="flex items-start gap-3 p-5 rounded-2xl bg-secondary/40"
+            >
+              <div className="w-1 self-stretch min-h-[1.5rem] bg-primary rounded-full shrink-0" />
+              <p className="font-medium text-sm md:text-base leading-snug">{frase}</p>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Mensagem de virada */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.97 }}
+          animate={inView ? { opacity: 1, scale: 1 } : {}}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          className="text-center max-w-2xl mx-auto glass rounded-3xl p-8 md:p-10 border border-primary/20"
+        >
+          <p className="text-xl md:text-2xl font-light tracking-wide leading-snug mb-4">
+            "Organização transforma esforço em crescimento."
+          </p>
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            O e-mei foi criado para dar a você clareza, controle e segurança — para que cada hora de trabalho se converta em resultado real.
+          </p>
+          <Button
+            className="mt-6 bg-primary text-primary-foreground hover:bg-primary/90 rounded-full font-semibold px-7 flex items-center gap-2 mx-auto"
+            onClick={() => document.getElementById("agendar")?.scrollIntoView({ behavior: "smooth" })}
+          >
+            <Calendar size={16} /> Fazer meu diagnóstico gratuito
+          </Button>
+        </motion.div>
       </div>
     </section>
   );
@@ -313,6 +428,9 @@ export default function App() {
 
       {/* Stats Section */}
       <StatsSection />
+
+      {/* Realidade do MEI */}
+      <RealidadeSection />
 
       {/* Features Section */}
       <section id="funcionalidades" className="py-16 md:py-24 bg-secondary/30 relative">
@@ -480,7 +598,7 @@ export default function App() {
               transition={{ delay: 0.1 }}
               className="text-2xl md:text-5xl font-light tracking-wide mb-5"
             >
-              Vamos conversar sobre o seu MEI?
+              Diagnóstico gratuito do seu MEI — <span className="text-primary">em 30 minutos.</span>
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -489,7 +607,7 @@ export default function App() {
               transition={{ delay: 0.2 }}
               className="text-base md:text-lg text-muted-foreground"
             >
-              Agende uma conversa gratuita e descubra como o e-mei pode simplificar a gestão do seu negócio. Sem compromisso.
+              Em uma conversa rápida, analisamos a situação real do seu negócio e mostramos onde estão os pontos de atenção — e como resolvê-los. Sem pressão, sem enrolação.
             </motion.p>
           </div>
 
@@ -502,10 +620,10 @@ export default function App() {
               className="lg:col-span-2 space-y-5"
             >
               {[
-                { icon: "🎯", title: "Diagnóstico gratuito", desc: "Entendemos sua situação atual e mostramos onde o e-mei pode ajudar." },
-                { icon: "⚡", title: "Demonstração ao vivo", desc: "Veja o sistema funcionando na prática, com dados reais do seu segmento." },
-                { icon: "💡", title: "Plano personalizado", desc: "Cada MEI é único. Montamos a solução ideal para o seu caso." },
-                { icon: "🔒", title: "Sem pressão de venda", desc: "Uma conversa leve e focada em tirar suas dúvidas." },
+                { icon: "🔍", title: "Análise real do seu negócio", desc: "Entendemos sua situação atual: DAS, faturamento, organização e pontos de risco." },
+                { icon: "💡", title: "Clareza sobre lucro x faturamento", desc: "Você vai sair sabendo se o seu negócio realmente dá lucro — ou só movimenta dinheiro." },
+                { icon: "🗺️", title: "Plano de ação personalizado", desc: "Cada MEI é único. Identificamos as ações prioritárias para o seu caso específico." },
+                { icon: "🔒", title: "Sem pressão, sem compromisso", desc: "Uma conversa honesta e focada em resolver os seus problemas reais." },
               ].map((item, i) => (
                 <motion.div
                   key={i}
@@ -640,17 +758,17 @@ export default function App() {
       <section className="py-20 md:py-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-primary/5"></div>
         <div className="container mx-auto px-6 md:px-12 relative z-10 text-center max-w-4xl">
-          <h2 className="text-2xl md:text-6xl font-light tracking-wide mb-6">Pronto para simplificar seu MEI?</h2>
+          <h2 className="text-2xl md:text-6xl font-light tracking-wide mb-6">Descubra onde está o dinheiro do seu MEI.</h2>
           <p className="text-base md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
-            Agende uma conversa gratuita e veja como o e-mei pode transformar a gestão do seu negócio em minutos por dia.
+            Em 30 minutos de conversa, você vai entender sua situação real, identificar os pontos de atenção e sair com um caminho claro para organizar e crescer.
           </p>
           <Button
             className="bg-primary text-primary-foreground hover:bg-primary/90 h-16 px-10 text-xl font-bold rounded-full animate-glow-pulse hover:scale-105 transition-transform mx-auto"
             onClick={() => document.getElementById("agendar")?.scrollIntoView({ behavior: "smooth" })}
           >
-            Começar grátis
+            <Calendar className="mr-2" size={20} /> Fazer meu diagnóstico gratuito
           </Button>
-          <p className="mt-4 text-sm text-muted-foreground">Leva menos de 2 minutos. Não pedimos cartão de crédito.</p>
+          <p className="mt-4 text-sm text-muted-foreground">Gratuito. Sem compromisso. Sem enrolação.</p>
         </div>
       </section>
 
