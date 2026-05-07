@@ -12,8 +12,10 @@ import {
   ShieldCheck,
   Menu,
   X,
-  Star
+  Star,
+  Calendar
 } from "lucide-react";
+
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -22,6 +24,24 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import heroImage from "./assets/hero-illustration.png";
+
+function CalendlyWidget() {
+  React.useEffect(() => {
+    if (document.querySelector('script[src*="calendly"]')) return;
+    const script = document.createElement("script");
+    script.src = "https://assets.calendly.com/assets/external/widget.js";
+    script.async = true;
+    document.head.appendChild(script);
+  }, []);
+
+  return (
+    <div
+      className="calendly-inline-widget w-full rounded-3xl overflow-hidden"
+      data-url="https://calendly.com/crbn-contador/30min?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=7cce20"
+      style={{ minWidth: 320, height: 700 }}
+    />
+  );
+}
 
 function useCounter(target: number, duration: number, inView: boolean) {
   const [count, setCount] = React.useState(0);
@@ -145,7 +165,6 @@ export default function App() {
   const [, setLocation] = useLocation();
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
-  const [billing, setBilling] = React.useState<"monthly" | "annual">("monthly");
   
   React.useEffect(() => {
     const handleScroll = () => {
@@ -171,14 +190,12 @@ export default function App() {
           <nav className="hidden md:flex items-center gap-8">
             <a href="#funcionalidades" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Funcionalidades</a>
             <a href="#como-funciona" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Como funciona</a>
-            <a href="#planos" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Planos</a>
             <a href="#faq" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">FAQ</a>
           </nav>
 
           <div className="hidden md:flex items-center gap-4">
-            <Button variant="ghost" className="text-sm font-medium" onClick={() => setLocation("/login")}>Entrar</Button>
-            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full px-6" onClick={() => setLocation("/login")}>
-              Começar grátis
+            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full px-6 flex items-center gap-2" onClick={() => document.getElementById("agendar")?.scrollIntoView({ behavior: "smooth" })}>
+              <Calendar size={16} /> Agendar uma conversa
             </Button>
           </div>
 
@@ -193,11 +210,11 @@ export default function App() {
         <div className="fixed inset-0 z-40 bg-background/95 backdrop-blur-xl pt-24 px-6 md:hidden flex flex-col gap-6">
           <a href="#funcionalidades" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-medium border-b border-border pb-4">Funcionalidades</a>
           <a href="#como-funciona" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-medium border-b border-border pb-4">Como funciona</a>
-          <a href="#planos" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-medium border-b border-border pb-4">Planos</a>
           <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-medium border-b border-border pb-4">FAQ</a>
           <div className="flex flex-col gap-4 mt-8">
-            <Button variant="outline" className="w-full text-lg py-6" onClick={() => { setMobileMenuOpen(false); setLocation("/login"); }}>Entrar</Button>
-            <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 text-lg py-6 rounded-full" onClick={() => { setMobileMenuOpen(false); setLocation("/login"); }}>Começar grátis</Button>
+            <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 text-lg py-6 rounded-full flex items-center gap-2 justify-center" onClick={() => { setMobileMenuOpen(false); document.getElementById("agendar")?.scrollIntoView({ behavior: "smooth" }); }}>
+              <Calendar size={20} /> Agendar uma conversa
+            </Button>
           </div>
         </div>
       )}
@@ -234,11 +251,12 @@ export default function App() {
             </motion.p>
             
             <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-3">
-              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 h-13 px-7 text-base md:text-lg font-semibold rounded-full group">
-                Começar grátis
+              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 h-13 px-7 text-base md:text-lg font-semibold rounded-full group" onClick={() => document.getElementById("agendar")?.scrollIntoView({ behavior: "smooth" })}>
+                <Calendar className="mr-2" size={18} />
+                Agendar uma conversa
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button variant="outline" className="h-13 px-7 text-base md:text-lg font-medium rounded-full border-border hover:bg-secondary">
+              <Button variant="outline" className="h-13 px-7 text-base md:text-lg font-medium rounded-full border-border hover:bg-secondary" onClick={() => document.getElementById("como-funciona")?.scrollIntoView({ behavior: "smooth" })}>
                 Ver como funciona
               </Button>
             </motion.div>
@@ -444,186 +462,78 @@ export default function App() {
         </div>
       </section>
 
-      {/* Pricing Section */}
-      <section id="planos" className="py-24 bg-secondary/30">
+      {/* Calendly / Agendamento Section */}
+      <section id="agendar" className="py-16 md:py-24 bg-secondary/30">
         <div className="container mx-auto px-6 md:px-12">
-          <div className="text-center max-w-3xl mx-auto mb-10">
-            <h2 className="text-2xl md:text-5xl font-light tracking-wide mb-6">Planos simples, como deve ser.</h2>
-            <p className="text-lg text-muted-foreground">Sem taxas escondidas. Cancele quando quiser.</p>
-          </div>
-
-          {/* Billing Toggle */}
-          <div className="flex items-center justify-center gap-4 mb-12">
-            <button
-              onClick={() => setBilling("monthly")}
-              className={`text-sm font-medium transition-colors ${billing === "monthly" ? "text-foreground" : "text-muted-foreground"}`}
-            >
-              Mensal
-            </button>
-            <button
-              onClick={() => setBilling(billing === "monthly" ? "annual" : "monthly")}
-              className="relative w-14 h-7 rounded-full bg-secondary border border-border transition-colors focus:outline-none"
-              aria-label="Alternar entre mensal e anual"
-            >
-              <motion.div
-                className="absolute top-1 w-5 h-5 rounded-full bg-primary shadow-sm"
-                animate={{ left: billing === "annual" ? "calc(100% - 1.5rem)" : "0.25rem" }}
-                transition={{ type: "spring", stiffness: 500, damping: 30 }}
-              />
-            </button>
-            <button
-              onClick={() => setBilling("annual")}
-              className={`text-sm font-medium transition-colors flex items-center gap-2 ${billing === "annual" ? "text-foreground" : "text-muted-foreground"}`}
-            >
-              Anual
-              <AnimatePresence>
-                {billing === "annual" && (
-                  <motion.span
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.8 }}
-                    className="bg-primary text-primary-foreground text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider"
-                  >
-                    −20%
-                  </motion.span>
-                )}
-              </AnimatePresence>
-            </button>
-          </div>
-
-          {billing === "annual" && (
-            <motion.p
-              initial={{ opacity: 0, y: -8 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-center text-sm text-muted-foreground mb-8"
-            >
-              Cobrado anualmente — economize <span className="text-primary font-medium">R$ 71,76/ano</span>
-            </motion.p>
-          )}
-
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {/* Free Plan */}
-            <motion.div 
+          <div className="text-center max-w-3xl mx-auto mb-10 md:mb-14">
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="glass rounded-3xl p-8 lg:p-10"
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-5"
             >
-              <h3 className="text-2xl font-light tracking-wider mb-2">Básico</h3>
-              <p className="text-muted-foreground mb-6">Para quem está começando</p>
-              <div className="mb-8">
-                <span className="text-5xl font-bold">R$ 0</span>
-                <span className="text-muted-foreground">/mês</span>
-              </div>
-              <ul className="space-y-4 mb-8">
-                <li className="flex items-center gap-3 text-sm">
-                  <CheckCircle2 className="text-primary shrink-0" size={18} />
-                  <span>Emissão da guia DAS</span>
-                </li>
-                <li className="flex items-center gap-3 text-sm">
-                  <CheckCircle2 className="text-primary shrink-0" size={18} />
-                  <span>Alertas de vencimento</span>
-                </li>
-                <li className="flex items-center gap-3 text-sm">
-                  <CheckCircle2 className="text-primary shrink-0" size={18} />
-                  <span>Controle financeiro básico</span>
-                </li>
-                <li className="flex items-center gap-3 text-sm opacity-50">
-                  <X className="shrink-0" size={18} />
-                  <span>Emissão de NFS-e</span>
-                </li>
-                <li className="flex items-center gap-3 text-sm opacity-50">
-                  <X className="shrink-0" size={18} />
-                  <span>Declaração anual automática</span>
-                </li>
-              </ul>
-              <Button variant="outline" className="w-full h-12 rounded-full text-base font-semibold">
-                Criar conta grátis
-              </Button>
+              <Calendar size={14} /> Conversa gratuita · 30 minutos
             </motion.div>
-
-            {/* Pro Plan */}
-            <motion.div 
+            <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="glass-green rounded-3xl p-8 lg:p-10 relative animate-glow-pulse"
+              className="text-2xl md:text-5xl font-light tracking-wide mb-5"
             >
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-bold uppercase tracking-wider">
-                Recomendado
-              </div>
-              <h3 className="text-2xl font-light tracking-wider mb-2">Pro</h3>
-              <p className="text-muted-foreground mb-6">O pacote completo para seu MEI</p>
-              <div className="mb-2 relative h-16 overflow-hidden">
-                <AnimatePresence mode="wait">
-                  {billing === "monthly" ? (
-                    <motion.div
-                      key="monthly"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -20 }}
-                      transition={{ duration: 0.25 }}
-                      className="absolute inset-0 flex items-center gap-1"
-                    >
-                      <span className="text-5xl font-bold">R$ 29<span className="text-2xl">,90</span></span>
-                      <span className="text-muted-foreground">/mês</span>
-                    </motion.div>
-                  ) : (
-                    <motion.div
-                      key="annual"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -20 }}
-                      transition={{ duration: 0.25 }}
-                      className="absolute inset-0 flex items-center gap-1"
-                    >
-                      <span className="text-5xl font-bold">R$ 23<span className="text-2xl">,90</span></span>
-                      <span className="text-muted-foreground">/mês</span>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-              <AnimatePresence>
-                {billing === "annual" && (
-                  <motion.p
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    className="text-xs text-muted-foreground mb-6"
-                  >
-                    R$ 286,80/ano — 2 meses grátis
-                  </motion.p>
-                )}
-              </AnimatePresence>
-              {billing === "monthly" && <div className="mb-6" />}
-              <ul className="space-y-4 mb-8">
-                <li className="flex items-center gap-3 text-sm">
-                  <CheckCircle2 className="text-primary shrink-0" size={18} />
-                  <span className="font-medium">Tudo do plano Básico, e mais:</span>
-                </li>
-                <li className="flex items-center gap-3 text-sm">
-                  <CheckCircle2 className="text-primary shrink-0" size={18} />
-                  <span>Emissão de NFS-e ilimitada</span>
-                </li>
-                <li className="flex items-center gap-3 text-sm">
-                  <CheckCircle2 className="text-primary shrink-0" size={18} />
-                  <span>Declaração Anual (DASN) 1-clique</span>
-                </li>
-                <li className="flex items-center gap-3 text-sm">
-                  <CheckCircle2 className="text-primary shrink-0" size={18} />
-                  <span>Gestão de clientes</span>
-                </li>
-                <li className="flex items-center gap-3 text-sm">
-                  <CheckCircle2 className="text-primary shrink-0" size={18} />
-                  <span>Suporte prioritário via WhatsApp</span>
-                </li>
-              </ul>
-              <Button className="w-full h-12 rounded-full text-base font-semibold bg-primary text-primary-foreground hover:bg-primary/90 shadow-[0_0_20px_rgba(124,206,32,0.3)]">
-                {billing === "annual" ? "Assinar Pro Anual" : "Assinar Pro"}
-              </Button>
+              Vamos conversar sobre o seu MEI?
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="text-base md:text-lg text-muted-foreground"
+            >
+              Agende uma conversa gratuita e descubra como o e-mei pode simplificar a gestão do seu negócio. Sem compromisso.
+            </motion.p>
+          </div>
+
+          <div className="grid lg:grid-cols-5 gap-8 md:gap-12 items-start max-w-6xl mx-auto">
+            {/* Benefícios */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="lg:col-span-2 space-y-5"
+            >
+              {[
+                { icon: "🎯", title: "Diagnóstico gratuito", desc: "Entendemos sua situação atual e mostramos onde o e-mei pode ajudar." },
+                { icon: "⚡", title: "Demonstração ao vivo", desc: "Veja o sistema funcionando na prática, com dados reais do seu segmento." },
+                { icon: "💡", title: "Plano personalizado", desc: "Cada MEI é único. Montamos a solução ideal para o seu caso." },
+                { icon: "🔒", title: "Sem pressão de venda", desc: "Uma conversa leve e focada em tirar suas dúvidas." },
+              ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="glass rounded-2xl p-5 flex gap-4"
+                >
+                  <span className="text-2xl shrink-0">{item.icon}</span>
+                  <div>
+                    <h4 className="font-semibold mb-1">{item.title}</h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+
+            {/* Calendly widget */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.15 }}
+              className="lg:col-span-3 glass rounded-3xl overflow-hidden border border-border/50"
+            >
+              <CalendlyWidget />
             </motion.div>
           </div>
         </div>
@@ -731,14 +641,18 @@ export default function App() {
       <section className="py-20 md:py-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-primary/5"></div>
         <div className="container mx-auto px-6 md:px-12 relative z-10 text-center max-w-4xl">
-          <h2 className="text-2xl md:text-6xl font-light tracking-wide mb-6">Pronto para ter o controle do seu negócio?</h2>
+          <h2 className="text-2xl md:text-6xl font-light tracking-wide mb-6">Pronto para simplificar seu MEI?</h2>
           <p className="text-base md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
-            Junte-se a milhares de empreendedores brasileiros que simplificaram a gestão do seu MEI.
+            Agende uma conversa gratuita e veja como o e-mei pode transformar a gestão do seu negócio em minutos por dia.
           </p>
-          <Button className="bg-primary text-primary-foreground hover:bg-primary/90 h-16 px-10 text-xl font-bold rounded-full animate-glow-pulse hover:scale-105 transition-transform">
-            Criar minha conta grátis
+          <Button
+            className="bg-primary text-primary-foreground hover:bg-primary/90 h-16 px-10 text-xl font-bold rounded-full animate-glow-pulse hover:scale-105 transition-transform flex items-center gap-3 mx-auto"
+            onClick={() => document.getElementById("agendar")?.scrollIntoView({ behavior: "smooth" })}
+          >
+            <Calendar size={24} />
+            Agendar conversa gratuita
           </Button>
-          <p className="mt-4 text-sm text-muted-foreground">Leva menos de 2 minutos. Não pedimos cartão de crédito.</p>
+          <p className="mt-4 text-sm text-muted-foreground">30 minutos · Sem compromisso · 100% gratuito</p>
         </div>
       </section>
 
@@ -790,7 +704,15 @@ export default function App() {
           </div>
           
           <div className="border-t border-border pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
-            <p>© {new Date().getFullYear()} e-mei Tecnologia S.A. Todos os direitos reservados.</p>
+            <p>
+              <button
+                onClick={() => setLocation("/app")}
+                className="hover:text-primary transition-colors cursor-default select-none"
+                tabIndex={-1}
+                aria-hidden="true"
+              >©</button>
+              {" "}{new Date().getFullYear()} e-mei Tecnologia S.A. Todos os direitos reservados.
+            </p>
             <p>CNPJ: 00.000.000/0001-00</p>
           </div>
         </div>
