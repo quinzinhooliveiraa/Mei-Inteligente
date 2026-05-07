@@ -1,4 +1,5 @@
 import React from "react";
+import { useLocation } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   LayoutDashboard,
@@ -69,15 +70,8 @@ function PageContent() {
 }
 
 function Sidebar({ onClose }: { onClose?: () => void }) {
-  const { currentPage, setCurrentPage, lancamentos, setShowNovoLancamento } = useApp();
-
-  const monthReceitas = lancamentos
-    .filter((l) => {
-      const d = new Date(l.data);
-      const n = new Date();
-      return l.tipo === "receita" && d.getMonth() === n.getMonth() && d.getFullYear() === n.getFullYear();
-    })
-    .reduce((s, l) => s + l.valor, 0);
+  const { currentPage, setCurrentPage, setShowNovoLancamento } = useApp();
+  const [, setLocation] = useLocation();
 
   function navigate(id: string) {
     setCurrentPage(id);
@@ -88,13 +82,17 @@ function Sidebar({ onClose }: { onClose?: () => void }) {
     <div className="flex flex-col h-full bg-[#111111] text-white w-full">
       {/* Logo */}
       <div className="px-4 pt-5 pb-4 flex items-center justify-between">
-        <div>
+        <button
+          onClick={() => setLocation("/")}
+          className="group text-left"
+          title="Voltar ao site"
+        >
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-[#7cce20] flex items-center justify-center font-bold text-black text-base">e</div>
-            <span className="font-semibold text-base tracking-tight">e-mei</span>
+            <div className="w-8 h-8 rounded-lg bg-[#7cce20] flex items-center justify-center font-bold text-black text-base group-hover:scale-105 transition-transform">e</div>
+            <span className="font-semibold text-base tracking-tight group-hover:text-[#7cce20] transition-colors">e-mei</span>
           </div>
-          <p className="text-[10px] text-gray-500 mt-0.5 ml-10">MEI INTELIGENTE</p>
-        </div>
+          <p className="text-[10px] text-gray-600 mt-0.5 ml-10 group-hover:text-gray-400 transition-colors">MEI INTELIGENTE</p>
+        </button>
         {onClose && (
           <button onClick={onClose} className="text-gray-400 hover:text-white transition-colors lg:hidden">
             <X size={20} />
