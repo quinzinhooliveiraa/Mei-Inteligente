@@ -1,19 +1,19 @@
 import React from "react";
 import { useLocation } from "wouter";
 import { motion, useInView } from "framer-motion";
-import { 
-  ArrowRight, 
-  CheckCircle2, 
-  FileText, 
-  LineChart, 
-  BellRing, 
-  Wallet, 
+import {
+  ArrowRight,
+  CheckCircle2,
+  FileText,
+  LineChart,
+  BellRing,
+  Wallet,
   ShieldCheck,
   Menu,
   X,
   Star,
   Calendar,
-  TrendingUp,
+  TrendingDown,
   AlertCircle,
   HelpCircle
 } from "lucide-react";
@@ -136,6 +136,19 @@ function StatsSection() {
   return (
     <section ref={ref} className="py-16 md:py-20">
       <div className="container mx-auto px-6 md:px-12">
+
+        {/* Ponte narrativa */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-10"
+        >
+          <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto">
+            Você não está sozinho nisso. São <strong className="text-foreground">mais de 12 milhões de brasileiros</strong> que escolheram empreender pelo próprio MEI. E a maioria enfrenta os mesmos desafios.
+          </p>
+        </motion.div>
+
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
           {stats.map((s, i) => (
             <motion.div
@@ -166,30 +179,6 @@ function RealidadeSection() {
   const ref = React.useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
-  const problemas = [
-    {
-      icon: <AlertCircle className="w-6 h-6" />,
-      title: "DAS acumulado",
-      desc: "Muitos MEIs acumulam guias em aberto sem perceber, gerando juros, multas e risco de perder o CNPJ.",
-    },
-    {
-      icon: <TrendingUp className="w-6 h-6 rotate-180" />,
-      title: "Fechamento por descontrole",
-      desc: "Boa parte dos negócios encerra não por falta de clientes, mas por falta de planejamento e controle financeiro.",
-    },
-    {
-      icon: <HelpCircle className="w-6 h-6" />,
-      title: "\"Quanto eu realmente lucro?\"",
-      desc: "A maioria dos MEIs não consegue responder com precisão se o negócio dá lucro ou apenas mantém as contas girando.",
-    },
-  ];
-
-  const frases = [
-    "Faturamento alto não significa lucro.",
-    "Muitos MEIs fecham por falta de organização.",
-    "Entender seu negócio é tão importante quanto vender.",
-  ];
-
   return (
     <section ref={ref} className="py-16 md:py-28 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/3 to-transparent pointer-events-none" />
@@ -204,21 +193,37 @@ function RealidadeSection() {
           className="text-center max-w-4xl mx-auto mb-16"
         >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-sm font-medium mb-6">
-            A realidade de quem empreende no Brasil
+            O problema que ninguém fala
           </div>
           <h2 className="text-2xl md:text-5xl font-light tracking-wide mb-6 leading-[1.25]">
-            Seu negócio realmente dá lucro{" "}
+            Trabalhar muito não é suficiente.{" "}
             <br className="hidden md:block" />
-            <span className="text-primary">ou só movimenta dinheiro?</span>
+            <span className="text-primary">Organização é o que transforma esforço em resultado.</span>
           </h2>
           <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Muitos MEIs faturam bem e ainda sentem que o dinheiro nunca sobra. O problema quase sempre não é falta de vendas.
+            A maioria dos MEIs não fecha por falta de clientes. Fecha por não saber exatamente onde está o dinheiro, o que deve, o que lucra e o que precisa mudar.
           </p>
         </motion.div>
 
         {/* Cards de problema */}
         <div className="grid md:grid-cols-3 gap-5 mb-10">
-          {problemas.map((p, i) => (
+          {[
+            {
+              icon: <AlertCircle className="w-6 h-6" />,
+              title: "DAS acumulado",
+              desc: "Muitos MEIs acumulam guias em aberto sem perceber, gerando juros, multas e risco de perder o CNPJ.",
+            },
+            {
+              icon: <TrendingDown className="w-6 h-6" />,
+              title: "Fechamento por descontrole",
+              desc: "Boa parte dos negócios encerra não por falta de clientes, mas por falta de planejamento e controle financeiro.",
+            },
+            {
+              icon: <HelpCircle className="w-6 h-6" />,
+              title: "\"Quanto eu realmente lucro?\"",
+              desc: "A maioria dos MEIs não consegue responder com precisão se o negócio dá lucro ou apenas mantém as contas girando.",
+            },
+          ].map((p, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 24 }}
@@ -237,7 +242,11 @@ function RealidadeSection() {
 
         {/* Frases estratégicas */}
         <div className="grid sm:grid-cols-3 gap-3 max-w-5xl mx-auto mb-12">
-          {frases.map((frase, i) => (
+          {[
+            "Faturamento alto não significa lucro.",
+            "Muitos MEIs fecham por falta de organização.",
+            "Entender seu negócio é tão importante quanto vender.",
+          ].map((frase, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 16 }}
@@ -251,7 +260,7 @@ function RealidadeSection() {
           ))}
         </div>
 
-        {/* Card de virada */}
+        {/* Virada narrativa: apresenta o e-mei como resposta */}
         <motion.div
           initial={{ opacity: 0, scale: 0.97 }}
           animate={inView ? { opacity: 1, scale: 1 } : {}}
@@ -259,10 +268,10 @@ function RealidadeSection() {
           className="max-w-2xl mx-auto glass rounded-3xl p-8 md:p-10 border border-primary/20 text-center"
         >
           <p className="text-xl md:text-2xl font-light tracking-wide leading-snug mb-3">
-            "Organização transforma esforço em crescimento."
+            Foi exatamente por isso que criamos o e-mei.
           </p>
           <p className="text-sm text-muted-foreground leading-relaxed mb-6">
-            O e-mei existe para dar a você clareza, controle e segurança para que cada hora de trabalho se converta em resultado real.
+            Para que cada MEI tenha clareza sobre o próprio negócio, controle sobre as obrigações e segurança para tomar decisões que façam o negócio crescer de verdade.
           </p>
           <Button
             className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full font-semibold px-7 inline-flex items-center gap-2"
@@ -337,7 +346,7 @@ export default function App() {
         </div>
       )}
 
-      {/* Hero */}
+      {/* Hero — abertura empática */}
       <section className="pt-24 pb-16 md:pt-48 md:pb-32 px-6 md:px-12 container mx-auto relative">
         <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] -z-10 pointer-events-none animate-orb-drift" />
         <div className="absolute top-1/2 right-1/4 w-[300px] h-[300px] bg-primary/6 rounded-full blur-[100px] -z-10 pointer-events-none animate-float-slow" style={{ animationDelay: "2s" }} />
@@ -354,12 +363,12 @@ export default function App() {
             </motion.div>
 
             <motion.h1 variants={fadeInUp} className="text-[2.1rem] leading-[1.2] md:text-7xl font-light tracking-wide mb-5 md:leading-[1.1]">
-              O controle do seu MEI,{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-green-300 whitespace-nowrap">sem burocracia.</span>
+              Você cuida do negócio.{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-green-300">A gente cuida do resto.</span>
             </motion.h1>
 
             <motion.p variants={fadeInUp} className="text-base md:text-xl text-muted-foreground mb-7 leading-relaxed max-w-xl">
-              Emita notas, pague seu DAS e controle suas receitas. Tudo em um só lugar, feito para quem não tem tempo a perder.
+              DAS em dia, notas emitidas, receitas organizadas. O e-mei resolve a parte chata para você parar de apagar incêndio e começar a crescer com segurança.
             </motion.p>
 
             <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-3">
@@ -387,7 +396,7 @@ export default function App() {
                   </div>
                 ))}
               </div>
-              <p>Mais de <strong className="text-foreground">10.000</strong> MEIs no Brasil.</p>
+              <p>Mais de <strong className="text-foreground">10.000</strong> MEIs já organizaram o negócio com a gente.</p>
             </motion.div>
           </motion.div>
 
@@ -429,22 +438,22 @@ export default function App() {
         </div>
       </section>
 
-      {/* Dados do mercado */}
+      {/* Dados do mercado — contextualização */}
       <StatsSection />
 
-      {/* Realidade do MEI */}
+      {/* Realidade do MEI — o problema */}
       <RealidadeSection />
 
-      {/* Funcionalidades */}
+      {/* Funcionalidades — a solução */}
       <section id="funcionalidades" className="py-16 md:py-24 bg-secondary/30 relative">
         <div className="container mx-auto px-6 md:px-12">
           <div className="text-center max-w-3xl mx-auto mb-10 md:mb-16">
-            <h2 className="text-2xl md:text-5xl font-light tracking-wide mb-4 md:mb-6">
-              O que o seu negócio precisa,{" "}
-              <span className="text-primary">sem o que não precisa.</span>
+            <h2 className="text-2xl md:text-5xl font-light tracking-wide mb-4 md:mb-5">
+              Cada funcionalidade foi criada{" "}
+              <span className="text-primary">para resolver um problema real.</span>
             </h2>
             <p className="text-base md:text-lg text-muted-foreground">
-              Feito especificamente para o Microempreendedor Individual no Brasil.
+              Sem funcionalidade inútil, sem curva de aprendizado. Só o que o MEI brasileiro realmente precisa no dia a dia.
             </p>
           </div>
 
@@ -453,32 +462,32 @@ export default function App() {
               {
                 icon: <Wallet className="w-6 h-6" />,
                 title: "Controle de DAS",
-                desc: "Gere e pague sua guia DAS mensal diretamente pela plataforma. Nunca mais esqueça o vencimento."
+                desc: "Gere e pague sua guia DAS mensal diretamente pela plataforma. Sem risco de esquecer, sem risco de multa."
               },
               {
                 icon: <FileText className="w-6 h-6" />,
                 title: "Emissão de Notas",
-                desc: "Emita NFS-e em poucos cliques, integrada com as principais prefeituras do país."
+                desc: "Emita NFS-e em poucos cliques, integrada com as principais prefeituras do país. Tudo em menos de 2 minutos."
               },
               {
                 icon: <LineChart className="w-6 h-6" />,
                 title: "Dashboard Financeiro",
-                desc: "Acompanhe receitas, despesas e limite de faturamento do MEI em tempo real."
+                desc: "Veja de forma clara quanto entrou, quanto saiu e quanto ainda dá para faturar no ano antes de atingir o limite do MEI."
               },
               {
                 icon: <BellRing className="w-6 h-6" />,
                 title: "Alertas Inteligentes",
-                desc: "Notificações sobre vencimentos, limites de faturamento e obrigações fiscais."
+                desc: "Receba avisos antes dos vencimentos, antes de bater o limite de faturamento e antes de qualquer problema se tornar uma dor de cabeça."
               },
               {
                 icon: <ShieldCheck className="w-6 h-6" />,
                 title: "Declaração Anual",
-                desc: "Dados para sua DASN-SIMEI gerados automaticamente ao fim do ano."
+                desc: "Na hora da DASN-SIMEI, seus dados já estão prontos. Você transmite com um clique, sem precisar procurar nenhum número."
               },
               {
                 icon: <CheckCircle2 className="w-6 h-6" />,
                 title: "Gestão de Clientes",
-                desc: "Histórico completo de serviços prestados e notas emitidas por cliente."
+                desc: "Histórico completo de quem contratou, quais serviços foram prestados e quais notas foram emitidas. Tudo organizado."
               }
             ].map((feature, i) => (
               <motion.div
@@ -501,23 +510,24 @@ export default function App() {
         </div>
       </section>
 
-      {/* Como funciona */}
+      {/* Como funciona — a prova que é simples */}
       <section id="como-funciona" className="py-16 md:py-32 relative overflow-hidden">
         <div className="container mx-auto px-6 md:px-12">
           <div className="flex flex-col lg:flex-row gap-16 items-center">
             <div className="lg:w-1/2">
               <h2 className="text-2xl md:text-5xl font-light tracking-wide mb-4">
-                Simples assim: <span className="text-primary">3 passos</span> para ter tudo organizado.
+                Começa em minutos.{" "}
+                <span className="text-primary">Funciona pra sempre.</span>
               </h2>
-              <p className="text-lg text-muted-foreground mb-12">
-                Deixa a burocracia com a gente. Você foca no que faz de melhor.
+              <p className="text-base md:text-lg text-muted-foreground mb-12">
+                Não precisa instalar nada. Não precisa de contador. Não precisa de treinamento. Em três passos você já tem tudo organizado.
               </p>
 
               <div className="space-y-12">
                 {[
-                  { step: "01", title: "Cadastre-se grátis", desc: "Crie sua conta em menos de 2 minutos usando apenas seu CNPJ." },
-                  { step: "02", title: "Configure seu MEI", desc: "O sistema importa automaticamente seus dados da Receita Federal." },
-                  { step: "03", title: "Tudo no controle", desc: "Suas guias, notas e relatórios já estão disponíveis no dashboard." }
+                  { step: "01", title: "Crie sua conta grátis", desc: "Leva menos de 2 minutos. Só precisa do seu CNPJ para começar." },
+                  { step: "02", title: "Configure seu MEI", desc: "O sistema importa seus dados direto da Receita Federal. Você não precisa digitar nada." },
+                  { step: "03", title: "Tudo no controle", desc: "Suas guias, notas e relatórios já estão disponíveis. Só acessar e usar." }
                 ].map((item, i) => (
                   <motion.div
                     key={i}
@@ -591,7 +601,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* Agendamento */}
+      {/* Diagnóstico — o primeiro passo personalizado */}
       <section id="agendar" className="py-16 md:py-24 bg-secondary/30">
         <div className="container mx-auto px-6 md:px-12">
           <div className="text-center max-w-3xl mx-auto mb-10 md:mb-14">
@@ -610,8 +620,8 @@ export default function App() {
               transition={{ delay: 0.1 }}
               className="text-2xl md:text-5xl font-light tracking-wide mb-5"
             >
-              Diagnóstico gratuito do seu MEI{" "}
-              <span className="text-primary">em 30 minutos.</span>
+              Antes de qualquer decisão,{" "}
+              <span className="text-primary">entenda onde você está de verdade.</span>
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -620,7 +630,7 @@ export default function App() {
               transition={{ delay: 0.2 }}
               className="text-base md:text-lg text-muted-foreground"
             >
-              Numa conversa rápida, analisamos a situação real do seu negócio e mostramos onde estão os pontos de atenção. Sem pressão. Sem enrolação.
+              Numa conversa de 30 minutos, analisamos juntos a situação real do seu negócio. DAS em dia? Faturamento no limite? Você realmente lucra? Você sai com respostas claras e um caminho definido.
             </motion.p>
           </div>
 
@@ -632,10 +642,10 @@ export default function App() {
               className="lg:col-span-2 space-y-4"
             >
               {[
-                { icon: "🔍", title: "Análise real do seu negócio", desc: "Entendemos sua situação atual: DAS, faturamento, organização e pontos de risco." },
-                { icon: "💡", title: "Clareza sobre lucro x faturamento", desc: "Você vai sair sabendo se seu negócio realmente dá lucro ou só movimenta dinheiro." },
-                { icon: "🗺️", title: "Plano de ação personalizado", desc: "Cada MEI é único. Identificamos as ações certas para o seu caso." },
-                { icon: "🔒", title: "Sem pressão, sem compromisso", desc: "Uma conversa honesta focada em resolver seus problemas reais." },
+                { icon: "🔍", title: "Análise real do seu negócio", desc: "Olhamos para DAS, faturamento, organização e pontos de risco específicos do seu caso." },
+                { icon: "💡", title: "Você vai saber se lucra de verdade", desc: "Muita gente acha que vai bem. Na conversa, a realidade fica clara, sem julgamento." },
+                { icon: "🗺️", title: "Sai com um plano na mão", desc: "Não é uma conversa vaga. Você sai sabendo exatamente o que precisa fazer primeiro." },
+                { icon: "🔒", title: "Sem pressão, sem script de vendas", desc: "Se não fizer sentido para você, não tem problema. A conversa já vale por si mesma." },
               ].map((item, i) => (
                 <motion.div
                   key={i}
@@ -667,12 +677,16 @@ export default function App() {
         </div>
       </section>
 
-      {/* Depoimentos */}
+      {/* Depoimentos — prova social */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-6 md:px-12">
           <div className="text-center mb-10 md:mb-16">
-            <h2 className="text-2xl md:text-4xl font-light tracking-wide">Quem usa, recomenda.</h2>
-            <p className="text-muted-foreground mt-3 text-sm">MEIs de todo o Brasil que organizaram seu negócio com a gente.</p>
+            <h2 className="text-2xl md:text-4xl font-light tracking-wide mb-3">
+              Quem organizou o MEI não volta atrás.
+            </h2>
+            <p className="text-muted-foreground text-sm max-w-xl mx-auto">
+              Veja o que mudou para quem decidiu parar de improvisar e passou a ter controle real do negócio.
+            </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 md:gap-8">
@@ -680,19 +694,19 @@ export default function App() {
               {
                 name: "Mariana Silva",
                 role: "Designer Freelancer",
-                content: "Antes eu perdia horas todo mês tentando entender o site da prefeitura para emitir nota. Agora faço tudo pelo app em 2 minutos. Mudou minha vida.",
+                content: "Perdia horas todo mês tentando emitir nota no site da prefeitura. Hoje faço isso em 2 minutos pelo app. Não consigo imaginar voltar para o jeito antigo.",
                 img: "1"
               },
               {
                 name: "Carlos Eduardo",
                 role: "Consultor de TI",
-                content: "O aviso de vencimento do DAS é a melhor coisa. Já paguei multa várias vezes por esquecer a data. O dashboard financeiro também é incrível.",
+                content: "Já paguei multa por esquecer o DAS. Agora recebo aviso com antecedência e nunca mais atrasei. O dashboard financeiro ainda me ajudou a perceber que eu lucrava menos do que achava.",
                 img: "2"
               },
               {
                 name: "Juliana Costa",
                 role: "Social Media",
-                content: "Fiz minha declaração anual com um clique este ano. O sistema já tinha puxado todas as minhas receitas. Super recomendo para qualquer MEI.",
+                content: "Fiz minha declaração anual com um clique. O sistema já tinha todas as minhas receitas. Fiquei impressionada com o quanto era mais simples do que eu esperava.",
                 img: "5"
               }
             ].map((t, i) => (
@@ -724,35 +738,35 @@ export default function App() {
         </div>
       </section>
 
-      {/* FAQ */}
+      {/* FAQ — tira as últimas dúvidas antes de decidir */}
       <section id="faq" className="py-16 md:py-24 bg-secondary/30">
         <div className="container mx-auto px-6 md:px-12 max-w-3xl">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-light tracking-wide mb-3">Perguntas frequentes</h2>
-            <p className="text-muted-foreground text-sm">Tudo o que você precisa saber sobre o e-mei.</p>
+            <h2 className="text-3xl md:text-4xl font-light tracking-wide mb-3">Ainda tem dúvidas? Normal.</h2>
+            <p className="text-muted-foreground text-sm">As perguntas que mais aparecem antes de começar.</p>
           </div>
 
           <Accordion type="single" collapsible className="w-full space-y-3">
             {[
               {
                 q: "Como o e-mei acessa meus dados do MEI?",
-                a: "Conectamos de forma segura com os sistemas da Receita Federal usando seu CNPJ. Apenas lemos e organizamos suas informações, mantendo tudo 100% seguro e em conformidade com a LGPD."
+                a: "Conectamos com os sistemas da Receita Federal usando seu CNPJ. Apenas lemos e organizamos suas informações, sem alterar nada. Tudo em conformidade com a LGPD."
               },
               {
                 q: "Posso emitir nota fiscal para qualquer cidade?",
-                a: "O e-mei é integrado com o padrão nacional NFS-e e com os sistemas de mais de 1.000 municípios brasileiros. Se sua cidade exigir emissão própria, o sistema vai direcionar você corretamente."
+                a: "Sim. O e-mei é integrado com o padrão nacional NFS-e e com mais de 1.000 municípios. Se sua cidade tiver sistema próprio, o e-mei vai te direcionar corretamente."
               },
               {
-                q: "Como funciona a geração da Declaração Anual?",
-                a: "Durante o ano, o sistema soma todas as suas receitas (notas emitidas e receitas informadas manualmente). Na época da declaração, consolidamos esses dados e você transmite para a Receita com um clique."
+                q: "Como funciona a Declaração Anual?",
+                a: "Durante o ano, o sistema registra todas as suas receitas automaticamente. Na época da DASN-SIMEI, você transmite tudo com um clique. Sem precisar buscar número nenhum."
               },
               {
                 q: "Se eu cancelar, perco meus dados?",
-                a: "Não. Seus dados continuam seguros na sua conta, que volta para o plano gratuito. Você perde acesso às funcionalidades exclusivas do plano Pro, como emissão de notas pelo sistema."
+                a: "Não. Seus dados ficam na conta, que volta para o plano gratuito. Você só perde acesso às funcionalidades Pro, como emissão de notas e livro caixa automático."
               },
               {
-                q: "Vocês pagam a guia DAS por mim?",
-                a: "Geramos a guia e o código Pix ou boleto para você pagar no seu banco. Não debitamos valores automaticamente da sua conta."
+                q: "Vocês pagam o DAS por mim?",
+                a: "Geramos a guia e o código Pix ou boleto para você pagar no seu banco. Não debitamos nada automaticamente."
               }
             ].map((faq, i) => (
               <AccordionItem key={i} value={`item-${i}`} className="glass rounded-xl px-6">
@@ -768,15 +782,15 @@ export default function App() {
         </div>
       </section>
 
-      {/* CTA Final */}
+      {/* CTA Final — fecha o arco narrativo */}
       <section className="py-20 md:py-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-primary/5"></div>
         <div className="container mx-auto px-6 md:px-12 relative z-10 text-center max-w-4xl">
           <h2 className="text-2xl md:text-6xl font-light tracking-wide mb-6">
-            Descubra onde está o dinheiro do seu MEI.
+            Você chegou até aqui por algum motivo.
           </h2>
           <p className="text-base md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
-            Em 30 minutos você vai entender sua situação real, saber se o negócio dá lucro de verdade e sair com um caminho claro para crescer.
+            Provavelmente porque sente que dá para organizar melhor. Que dá para crescer mais. Que falta clareza sobre o próprio negócio. A gente pode ajudar com isso, começando por uma conversa de 30 minutos.
           </p>
           <Button
             className="bg-primary text-primary-foreground hover:bg-primary/90 h-16 px-10 text-xl font-bold rounded-full animate-glow-pulse hover:scale-105 transition-transform inline-flex items-center gap-2"
