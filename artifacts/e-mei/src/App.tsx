@@ -705,7 +705,7 @@ export default function App() {
             <p>
               <button
                 onClick={() => setLocation("/app")}
-                className="hover:text-primary transition-colors cursor-default select-none"
+                className="cursor-default select-none"
                 tabIndex={-1}
                 aria-hidden="true"
               >©</button>
