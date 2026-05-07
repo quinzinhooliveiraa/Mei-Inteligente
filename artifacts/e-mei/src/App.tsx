@@ -252,8 +252,7 @@ export default function App() {
             
             <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-3">
               <Button className="bg-primary text-primary-foreground hover:bg-primary/90 h-13 px-7 text-base md:text-lg font-semibold rounded-full group" onClick={() => document.getElementById("agendar")?.scrollIntoView({ behavior: "smooth" })}>
-                <Calendar className="mr-2" size={18} />
-                Agendar uma conversa
+                Começar grátis
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button variant="outline" className="h-13 px-7 text-base md:text-lg font-medium rounded-full border-border hover:bg-secondary" onClick={() => document.getElementById("como-funciona")?.scrollIntoView({ behavior: "smooth" })}>
@@ -646,13 +645,12 @@ export default function App() {
             Agende uma conversa gratuita e veja como o e-mei pode transformar a gestão do seu negócio em minutos por dia.
           </p>
           <Button
-            className="bg-primary text-primary-foreground hover:bg-primary/90 h-16 px-10 text-xl font-bold rounded-full animate-glow-pulse hover:scale-105 transition-transform flex items-center gap-3 mx-auto"
+            className="bg-primary text-primary-foreground hover:bg-primary/90 h-16 px-10 text-xl font-bold rounded-full animate-glow-pulse hover:scale-105 transition-transform mx-auto"
             onClick={() => document.getElementById("agendar")?.scrollIntoView({ behavior: "smooth" })}
           >
-            <Calendar size={24} />
-            Agendar conversa gratuita
+            Começar grátis
           </Button>
-          <p className="mt-4 text-sm text-muted-foreground">30 minutos · Sem compromisso · 100% gratuito</p>
+          <p className="mt-4 text-sm text-muted-foreground">Leva menos de 2 minutos. Não pedimos cartão de crédito.</p>
         </div>
       </section>
 
