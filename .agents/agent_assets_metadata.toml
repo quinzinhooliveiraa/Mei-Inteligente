@@ -1,0 +1,8 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "kU6LU6-y8YtYdqeu7wN0_"
+uri = "file://artifacts/e-mei/src/assets/hero-illustration.png"
+type = "image"
+title = "Abstract financial control illustration"

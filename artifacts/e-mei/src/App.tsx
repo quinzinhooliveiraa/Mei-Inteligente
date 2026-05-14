@@ -264,8 +264,7 @@ export default function App() {
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-background/80 backdrop-blur-lg border-b border-border/50 py-3" : "bg-transparent py-5"}`}>
         <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded bg-primary flex items-center justify-center text-primary-foreground font-bold text-xl leading-none">e</div>
-            <span className="font-light text-xl tracking-wide">EasyMei</span>
+            <img src="/logo.png" alt="EasyMei" className="h-16 w-auto" />
           </div>
 
           <nav className="hidden md:flex items-center gap-8">
@@ -821,8 +820,7 @@ export default function App() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-16">
             <div className="col-span-2 md:col-span-1">
               <div className="flex items-center gap-2 mb-5">
-                <div className="w-8 h-8 rounded bg-primary flex items-center justify-center text-primary-foreground font-bold text-xl leading-none">e</div>
-                <span className="font-light text-xl tracking-wide">EasyMei</span>
+                <img src="/logo.png" alt="EasyMei" className="h-12 w-auto" />
               </div>
               <p className="text-muted-foreground text-sm leading-relaxed mb-5">
                 Cuidamos de toda a burocracia do seu MEI para você focar no que realmente importa.
