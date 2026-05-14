@@ -346,9 +346,18 @@ export default function App() {
 
             <motion.div variants={fadeInUp} className="mt-8 flex items-center gap-3 text-sm text-muted-foreground">
               <div className="flex -space-x-2 shrink-0">
-                {[1, 2, 3, 4].map(i => (
-                  <div key={i} className="w-8 h-8 rounded-full border-2 border-background bg-secondary flex items-center justify-center overflow-hidden">
-                    <img src={`https://i.pravatar.cc/100?img=${i + 10}`} alt="User" />
+                {[
+                  { initials: "AM", bg: "#7cce20" },
+                  { initials: "RS", bg: "#4a9e0f" },
+                  { initials: "CL", bg: "#2d7a08" },
+                  { initials: "JP", bg: "#9be040" },
+                ].map((u, i) => (
+                  <div
+                    key={i}
+                    className="w-8 h-8 rounded-full border-2 border-background flex items-center justify-center text-[10px] font-bold text-black"
+                    style={{ background: u.bg }}
+                  >
+                    {u.initials}
                   </div>
                 ))}
               </div>
