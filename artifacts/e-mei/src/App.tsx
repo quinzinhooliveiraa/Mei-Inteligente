@@ -285,47 +285,15 @@ export default function App() {
             <img src="/logo.png" alt="EasyMei" className="h-16 w-auto" />
           </div>
 
-          <nav className="hidden md:flex items-center gap-8">
-            <a href="#funcionalidades" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Serviços</a>
-            <a href="#sobre" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Sobre</a>
-            <a href="#agendar" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Diagnóstico gratuito</a>
-            <a href="#faq" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">FAQ</a>
-            <a href="/artigos" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Blog</a>
-          </nav>
-
-          <div className="hidden md:flex items-center gap-4">
-            <Button
-              className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full px-6 flex items-center gap-2"
-              onClick={() => document.getElementById("agendar")?.scrollIntoView({ behavior: "smooth" })}
-            >
-              <Calendar size={16} /> Agendar uma conversa
-            </Button>
-          </div>
-
-          <button className="md:hidden text-foreground" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-            {mobileMenuOpen ? <X /> : <Menu />}
-          </button>
+          <Button
+            className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full px-5 md:px-6 text-sm flex items-center gap-2"
+            onClick={() => document.getElementById("agendar")?.scrollIntoView({ behavior: "smooth" })}
+          >
+            <Calendar size={15} /> <span className="hidden sm:inline">Agendar uma conversa</span><span className="sm:hidden">Agendar</span>
+          </Button>
         </div>
       </header>
 
-      {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <div className="fixed inset-0 z-40 bg-background/95 backdrop-blur-xl pt-24 px-6 md:hidden flex flex-col gap-6">
-          <a href="#funcionalidades" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-medium border-b border-border pb-4">Serviços</a>
-          <a href="#sobre" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-medium border-b border-border pb-4">Sobre</a>
-          <a href="#agendar" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-medium border-b border-border pb-4">Diagnóstico gratuito</a>
-          <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-medium border-b border-border pb-4">FAQ</a>
-          <a href="/artigos" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-medium border-b border-border pb-4">Blog</a>
-          <div className="flex flex-col gap-4 mt-8">
-            <Button
-              className="w-full bg-primary text-primary-foreground hover:bg-primary/90 text-lg py-6 rounded-full flex items-center gap-2 justify-center"
-              onClick={() => { setMobileMenuOpen(false); document.getElementById("agendar")?.scrollIntoView({ behavior: "smooth" }); }}
-            >
-              <Calendar size={20} /> Agendar uma conversa
-            </Button>
-          </div>
-        </div>
-      )}
 
       {/* Hero — abertura empática */}
       <section className="pt-24 pb-16 md:pt-48 md:pb-32 px-6 md:px-12 container mx-auto relative">
