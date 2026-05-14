@@ -100,20 +100,12 @@ function StatsSection() {
 
   const stats = [
     {
-      value: (count126 / 10).toFixed(1).replace(".", ","),
-      suffix: " mi",
-      label: "MEIs ativos no Brasil",
-      note: "Fonte: Receita Federal 2025",
-      pct: 90,
+      value: "1 em 3",
+      suffix: "",
+      label: "MEIs encerram por falta de controle financeiro",
+      note: "Não por falta de clientes",
+      pct: 33,
       delay: 0,
-    },
-    {
-      value: (count38 / 10).toFixed(1).replace(".", ","),
-      suffix: " mi",
-      label: "novos MEIs abertos em 2025",
-      note: "Crescimento recorde no país",
-      pct: 62,
-      delay: 0.1,
     },
     {
       value: "R$ " + count717.toLocaleString("pt-BR"),
@@ -121,14 +113,22 @@ function StatsSection() {
       label: "movimentados por micro e pequenos negócios",
       note: "Impacto direto no PIB",
       pct: 77,
+      delay: 0.1,
+    },
+    {
+      value: (count126 / 10).toFixed(1).replace(".", ","),
+      suffix: " mi",
+      label: "MEIs ativos no Brasil",
+      note: "Fonte: Receita Federal 2025",
+      pct: 90,
       delay: 0.2,
     },
     {
-      value: "1 em 3",
-      suffix: "",
-      label: "MEIs encerram por falta de controle financeiro",
-      note: "Não por falta de clientes",
-      pct: 33,
+      value: (count38 / 10).toFixed(1).replace(".", ","),
+      suffix: " mi",
+      label: "novos MEIs abertos em 2025",
+      note: "Crescimento recorde no país",
+      pct: 62,
       delay: 0.3,
     },
   ];
