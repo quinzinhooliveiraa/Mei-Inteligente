@@ -270,6 +270,7 @@ export default function App() {
 
           <nav className="hidden md:flex items-center gap-8">
             <a href="#funcionalidades" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Serviços</a>
+            <a href="#sobre" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Sobre</a>
             <a href="#agendar" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Diagnóstico gratuito</a>
             <a href="#faq" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">FAQ</a>
           </nav>
@@ -293,6 +294,7 @@ export default function App() {
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-40 bg-background/95 backdrop-blur-xl pt-24 px-6 md:hidden flex flex-col gap-6">
           <a href="#funcionalidades" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-medium border-b border-border pb-4">Serviços</a>
+          <a href="#sobre" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-medium border-b border-border pb-4">Sobre</a>
           <a href="#agendar" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-medium border-b border-border pb-4">Diagnóstico gratuito</a>
           <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-medium border-b border-border pb-4">FAQ</a>
           <div className="flex flex-col gap-4 mt-8">
@@ -558,6 +560,45 @@ export default function App() {
                 <p className="text-muted-foreground text-sm leading-relaxed">{feature.desc}</p>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Sobre a EasyMei */}
+      <section id="sobre" className="py-16 md:py-24">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center max-w-5xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, x: -24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.6 }}
+            >
+              <p className="text-primary text-sm font-semibold uppercase tracking-widest mb-4">Sobre a EasyMei</p>
+              <h2 className="text-2xl md:text-4xl font-light tracking-wide leading-snug mb-6">
+                Mais do que assessoria —{" "}
+                <span className="text-primary">parceiros da sua jornada.</span>
+              </h2>
+              <div className="w-12 h-px bg-primary mb-6" />
+              <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
+                Na EasyMei, acreditamos que o microempreendedor deve focar no crescimento do seu negócio — e não perder tempo com burocracias.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+              className="space-y-5 text-sm md:text-base text-muted-foreground leading-relaxed"
+            >
+              <p>
+                Nossa missão é simplificar a rotina do MEI através de <strong className="text-foreground">organização financeira, planejamento estratégico, consultoria personalizada</strong> e suporte completo nas obrigações do dia a dia — emissão de DAS, acompanhamento fiscal e orientação empresarial.
+              </p>
+              <p>
+                Sabemos que muitos empreendedores começam sozinhos e enfrentam dificuldades para manter tudo em ordem. Por isso, criamos uma solução prática, acessível e humanizada, ajudando o MEI a ter mais <strong className="text-foreground">controle, segurança e tranquilidade</strong> para crescer de forma sustentável.
+              </p>
+            </motion.div>
           </div>
         </div>
       </section>
