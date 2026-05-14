@@ -5,6 +5,7 @@ import LoginPage from "./LoginPage";
 import OnboardingPage from "./OnboardingPage";
 import AppLayout from "./app/AppLayout";
 import BlogPage from "./BlogPage";
+import ArticlePage from "./ArticlePage";
 import TermosPage from "./TermosPage";
 import PrivacidadePage from "./PrivacidadePage";
 import "./index.css";
@@ -15,6 +16,7 @@ createRoot(document.getElementById("root")!).render(
       <Route path="/login" component={LoginPage} />
       <Route path="/onboarding" component={OnboardingPage} />
       <Route path="/app" component={AppLayout} />
+      <Route path="/artigos/:slug" component={ArticlePage} />
       <Route path="/artigos" component={BlogPage} />
       <Route path="/termos" component={TermosPage} />
       <Route path="/privacidade" component={PrivacidadePage} />
