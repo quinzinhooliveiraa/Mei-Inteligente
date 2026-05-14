@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { ArrowLeft, Clock, Tag, ArrowRight, Search } from "lucide-react";
 import { ARTICLES, CATEGORY_COLORS } from "./articles-data";
 import { useSEO } from "./hooks/useSEO";
-import { Logo } from "./components/Logo";
 
 const CATEGORIES = ["Todos", "DAS & Impostos", "Faturamento", "Declaração", "Nota Fiscal", "Regularização", "Finanças", "Gestão", "Benefícios"];
 
@@ -45,7 +44,7 @@ export default function BlogPage() {
             className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
           >
             <ArrowLeft size={18} />
-            <Logo className="h-8 w-auto" />
+            <img src="/logo.png" alt="EasyMei" className="h-8 w-auto" />
           </button>
           <span className="text-sm text-muted-foreground">Blog do MEI</span>
         </div>

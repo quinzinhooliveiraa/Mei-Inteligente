@@ -1,7 +1,6 @@
 import { useLocation } from "wouter";
 import { ArrowLeft } from "lucide-react";
 import { useSEO } from "./hooks/useSEO";
-import { Logo } from "./components/Logo";
 
 export default function TermosPage() {
   const [, setLocation] = useLocation();
@@ -22,7 +21,7 @@ export default function TermosPage() {
             className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
           >
             <ArrowLeft size={18} />
-            <Logo className="h-8 w-auto" />
+            <img src="/logo.png" alt="EasyMei" className="h-8 w-auto" />
           </button>
           <span className="text-sm text-muted-foreground">Termos de Uso</span>
         </div>
