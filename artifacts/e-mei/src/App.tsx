@@ -369,8 +369,7 @@ export default function App() {
               {/* Topbar */}
               <div className="flex items-center justify-between px-5 py-4 border-b border-white/5">
                 <div className="flex items-center gap-2">
-                  <div className="w-6 h-6 rounded bg-primary flex items-center justify-center font-bold text-black text-xs">E</div>
-                  <span className="text-sm font-semibold tracking-tight">EasyMei</span>
+                  <img src="/logo.png" alt="EasyMei" className="h-6 w-auto" />
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
