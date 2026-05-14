@@ -1,45 +1,53 @@
-# [Project name]
+# EasyMei — MEI inteligente
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+Landing page para o produto EasyMei, plataforma de gestão inteligente para Microempreendedores Individuais (MEI) brasileiros.
 
 ## Run & Operate
 
-- `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
-- `pnpm run typecheck` — full typecheck across all packages
-- `pnpm run build` — typecheck + build all packages
-- `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
-- `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
-- Required env: `DATABASE_URL` — Postgres connection string
+- `pnpm --filter @workspace/e-mei run dev` — rodar o site (porta via $PORT)
+- `pnpm run typecheck` — typecheck completo
+- `pnpm run build` — build completo
 
 ## Stack
 
 - pnpm workspaces, Node.js 24, TypeScript 5.9
-- API: Express 5
-- DB: PostgreSQL + Drizzle ORM
-- Validation: Zod (`zod/v4`), `drizzle-zod`
-- API codegen: Orval (from OpenAPI spec)
-- Build: esbuild (CJS bundle)
+- Frontend: React + Vite (react-vite artifact)
+- Animações: Framer Motion
+- Ícones: Lucide React
+- Fonte: Outfit (Google Fonts)
+- Build: Vite + Tailwind CSS v4
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/e-mei/src/App.tsx` — componente principal da landing page (única página)
+- `artifacts/e-mei/src/index.css` — tema dark com variáveis CSS (#222121 base, #7cce20 accent)
+- `attached_assets/` — imagem hero gerada por IA
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- Site estático (presentation-first), sem backend ou banco de dados
+- Single-page app com scroll suave entre seções
+- Dark theme fixo baseado nas cores da marca (#222121 fundo, #7cce20 verde, #fff texto)
+- Framer Motion para animações de scroll-reveal e micro-interações
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+Landing page da e-mei com seções: Hero, Funcionalidades, Como funciona, Planos (Grátis + Pro R$29,90/mês), Depoimentos, FAQ, CTA Final, Rodapé.
 
 ## User preferences
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
+- Nome do produto: e-mei
+- Slogan: MEI inteligente
+- Cores: #222121 (base/fundo), #7cce20 (verde/destaque), #ffffff (texto)
+- Verde NÃO é a cor base — o preto/escuro é
+- Todo conteúdo em português brasileiro
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+- Google Fonts @import deve ser a PRIMEIRA linha do index.css (antes dos imports do Tailwind)
+- Site é estático — não requer DATABASE_URL nem API server
 
 ## Pointers
 
-- See the `pnpm-workspace` skill for workspace structure, TypeScript setup, and package details
+- See the `pnpm-workspace` skill for workspace structure
+- See the `react-vite` skill for frontend conventions
