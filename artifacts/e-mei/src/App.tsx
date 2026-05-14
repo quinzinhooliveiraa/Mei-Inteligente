@@ -15,7 +15,8 @@ import {
   Calendar,
   TrendingDown,
   AlertCircle,
-  HelpCircle
+  HelpCircle,
+  Instagram
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -860,9 +861,20 @@ export default function App() {
                 tabIndex={-1}
                 aria-hidden="true"
               >©</button>
-              {" "}{new Date().getFullYear()} EasyMei Tecnologia S.A. Todos os direitos reservados.
+              {" "}{new Date().getFullYear()} EasyMei. Todos os direitos reservados.
             </p>
-            <p>CNPJ: 00.000.000/0001-00</p>
+            <div className="flex items-center gap-5">
+              <a
+                href="https://www.instagram.com/easy.mei/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 hover:text-primary transition-colors"
+                aria-label="Instagram da EasyMei"
+              >
+                <Instagram size={14} />
+                @easy.mei
+              </a>
+            </div>
           </div>
         </div>
       </footer>
