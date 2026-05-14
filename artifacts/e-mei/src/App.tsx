@@ -618,7 +618,7 @@ export default function App() {
               viewport={{ once: true }}
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-5"
             >
-              <Calendar size={14} /> Diagnóstico gratuito · 30 minutos
+              <Calendar size={14} /> Diagnóstico gratuito · 45 minutos
             </motion.div>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
@@ -637,7 +637,7 @@ export default function App() {
               transition={{ delay: 0.2 }}
               className="text-base md:text-lg text-muted-foreground"
             >
-              Numa conversa de 30 minutos, analisamos juntos a situação real do seu negócio. DAS em dia? Faturamento no limite? Você realmente lucra? Você sai com respostas claras e um caminho definido.
+              Numa conversa de 45 minutos, analisamos juntos a situação real do seu negócio. DAS em dia? Faturamento no limite? Você realmente lucra? Você sai com respostas claras e um caminho definido.
             </motion.p>
           </div>
 
@@ -797,7 +797,7 @@ export default function App() {
             Você chegou até aqui por algum motivo.
           </h2>
           <p className="text-base md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
-            Provavelmente porque sente que dá para organizar melhor. Que dá para crescer mais. Que falta clareza sobre o próprio negócio. A gente pode ajudar com isso, começando por uma conversa de 30 minutos.
+            Provavelmente porque sente que dá para organizar melhor. Que dá para crescer mais. Que falta clareza sobre o próprio negócio. A gente pode ajudar com isso, começando por uma conversa de 45 minutos.
           </p>
           <Button
             className="bg-primary text-primary-foreground hover:bg-primary/90 h-16 px-10 text-xl font-bold rounded-full animate-glow-pulse hover:scale-105 transition-transform inline-flex items-center gap-2"
