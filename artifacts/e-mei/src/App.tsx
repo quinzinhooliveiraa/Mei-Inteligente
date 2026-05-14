@@ -308,7 +308,7 @@ export default function App() {
           </div>
 
           <nav className="hidden md:flex items-center gap-8">
-            <a href="#funcionalidades" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Funcionalidades</a>
+            <a href="#funcionalidades" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Serviços</a>
             <a href="#agendar" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Diagnóstico gratuito</a>
             <a href="#faq" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">FAQ</a>
           </nav>
@@ -331,7 +331,7 @@ export default function App() {
       {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-40 bg-background/95 backdrop-blur-xl pt-24 px-6 md:hidden flex flex-col gap-6">
-          <a href="#funcionalidades" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-medium border-b border-border pb-4">Funcionalidades</a>
+          <a href="#funcionalidades" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-medium border-b border-border pb-4">Serviços</a>
           <a href="#agendar" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-medium border-b border-border pb-4">Diagnóstico gratuito</a>
           <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-medium border-b border-border pb-4">FAQ</a>
           <div className="flex flex-col gap-4 mt-8">
@@ -358,7 +358,7 @@ export default function App() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
               </span>
-              Serviço para MEI
+              Gestão de MEI terceirizada
             </motion.div>
 
             <motion.h1 variants={fadeInUp} className="text-[2.1rem] leading-[1.2] md:text-7xl font-light tracking-wide mb-5 md:leading-[1.1]">
@@ -819,25 +819,25 @@ export default function App() {
                 <span className="font-light text-xl tracking-wide">EasyMei</span>
               </div>
               <p className="text-muted-foreground text-sm leading-relaxed">
-                A plataforma EasyMei descomplica a vida do Microempreendedor Individual no Brasil.
+                Cuidamos de toda a burocracia do seu MEI para você focar no que realmente importa.
               </p>
             </div>
 
             <div>
-              <h4 className="font-bold mb-4 text-sm">Produto</h4>
+              <h4 className="font-bold mb-4 text-sm">Serviços</h4>
               <ul className="space-y-3 text-sm text-muted-foreground">
-                <li><a href="#funcionalidades" className="hover:text-primary transition-colors">Funcionalidades</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Emissão de Notas</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Segurança</a></li>
+                <li><a href="#funcionalidades" className="hover:text-primary transition-colors">O que fazemos</a></li>
+                <li><a href="#agendar" className="hover:text-primary transition-colors">Diagnóstico gratuito</a></li>
+                <li><a href="#faq" className="hover:text-primary transition-colors">Perguntas frequentes</a></li>
               </ul>
             </div>
 
             <div>
-              <h4 className="font-bold mb-4 text-sm">Recursos</h4>
+              <h4 className="font-bold mb-4 text-sm">Para você</h4>
               <ul className="space-y-3 text-sm text-muted-foreground">
                 <li><a href="#" className="hover:text-primary transition-colors">Blog do MEI</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Central de Ajuda</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Guia do Iniciante</a></li>
+                <li><a href="#" className="hover:text-primary transition-colors">Tire suas dúvidas</a></li>
+                <li><a href="#" className="hover:text-primary transition-colors">Guia do MEI iniciante</a></li>
               </ul>
             </div>
 
