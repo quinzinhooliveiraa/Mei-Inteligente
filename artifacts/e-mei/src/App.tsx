@@ -1,6 +1,7 @@
 import React from "react";
 import { useLocation } from "wouter";
 import { motion, useInView } from "framer-motion";
+import { useSEO } from "./hooks/useSEO";
 import {
   ArrowRight,
   CheckCircle2,
@@ -250,6 +251,23 @@ export default function App() {
   const [, setLocation] = useLocation();
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
+
+  useSEO({
+    title: "EasyMei — Gestão de MEI Inteligente | DAS, Notas e Declaração",
+    description: "A EasyMei cuida de toda a burocracia do seu MEI: paga o DAS, emite notas fiscais e envia a declaração anual. Foque no seu negócio, a gente faz o resto. Plano gratuito disponível.",
+    canonical: "/",
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "EasyMei",
+      "description": "Gestão burocrática inteligente para Microempreendedores Individuais (MEI).",
+      "url": "https://easymei.com.br",
+      "telephone": "+5533912406270",
+      "priceRange": "R$0 - R$29,90/mês",
+      "areaServed": { "@type": "Country", "name": "Brasil" },
+      "sameAs": ["https://www.instagram.com/easy.mei/"]
+    }
+  });
 
   React.useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);

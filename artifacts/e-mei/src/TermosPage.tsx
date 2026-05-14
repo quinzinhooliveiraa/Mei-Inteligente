@@ -1,8 +1,16 @@
 import { useLocation } from "wouter";
 import { ArrowLeft } from "lucide-react";
+import { useSEO } from "./hooks/useSEO";
 
 export default function TermosPage() {
   const [, setLocation] = useLocation();
+
+  useSEO({
+    title: "Termos de Uso — EasyMei",
+    description: "Leia os Termos de Uso da EasyMei: regras de utilização da plataforma, planos, responsabilidades e legislação aplicável.",
+    canonical: "/termos",
+    noIndex: false,
+  });
 
   return (
     <div className="min-h-screen bg-background text-foreground font-sans">

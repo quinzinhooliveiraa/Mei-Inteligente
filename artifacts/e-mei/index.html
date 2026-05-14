@@ -1,13 +1,117 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <title>EasyMei — MEI inteligente</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5" />
+
+    <!-- Primary SEO -->
+    <title>EasyMei — Gestão de MEI Inteligente | DAS, Notas e Declaração</title>
+    <meta name="description" content="A EasyMei cuida de toda a burocracia do seu MEI: paga o DAS, emite notas fiscais e envia a declaração anual. Foque no seu negócio, a gente faz o resto. Plano gratuito disponível." />
+    <meta name="keywords" content="MEI, Microempreendedor Individual, DAS MEI, nota fiscal MEI, DASN MEI, gestão MEI, CNPJ MEI, declaração anual MEI, regularização MEI, EasyMei" />
+    <meta name="author" content="EasyMei" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="pt-BR" />
+    <link rel="canonical" href="https://easymei.com.br/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://easymei.com.br/" />
+    <meta property="og:site_name" content="EasyMei" />
+    <meta property="og:title" content="EasyMei — Gestão de MEI Inteligente" />
+    <meta property="og:description" content="DAS em dia, notas emitidas, declaração feita. A EasyMei assume toda a burocracia do seu MEI por R$29,90/mês." />
+    <meta property="og:image" content="https://easymei.com.br/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="pt_BR" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@easymei" />
+    <meta name="twitter:title" content="EasyMei — Gestão de MEI Inteligente" />
+    <meta name="twitter:description" content="DAS em dia, notas emitidas, declaração feita. A EasyMei assume toda a burocracia do seu MEI por R$29,90/mês." />
+    <meta name="twitter:image" content="https://easymei.com.br/og-image.png" />
+
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="/favicon.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" href="/favicon.png" />
+
+    <!-- JSON-LD: Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "EasyMei",
+      "url": "https://easymei.com.br",
+      "logo": "https://easymei.com.br/logo.png",
+      "description": "Plataforma de gestão burocrática para Microempreendedores Individuais (MEI) no Brasil.",
+      "sameAs": [
+        "https://www.instagram.com/easy.mei/",
+        "https://wa.me/5533912406270"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+55-33-91240-6270",
+        "contactType": "customer service",
+        "availableLanguage": "Portuguese",
+        "areaServed": "BR"
+      }
+    }
+    </script>
+
+    <!-- JSON-LD: WebSite + Sitelinks Searchbox -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "EasyMei",
+      "url": "https://easymei.com.br",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://easymei.com.br/artigos?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <!-- JSON-LD: SoftwareApplication (pricing) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "EasyMei",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "description": "Gestão inteligente para MEI: DAS, notas fiscais e declaração anual.",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Plano Gratuito",
+          "price": "0",
+          "priceCurrency": "BRL"
+        },
+        {
+          "@type": "Offer",
+          "name": "Plano Pro",
+          "price": "29.90",
+          "priceCurrency": "BRL",
+          "billingIncrement": "P1M"
+        }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "200"
+      }
+    }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   </head>
   <body>
     <div id="root"></div>

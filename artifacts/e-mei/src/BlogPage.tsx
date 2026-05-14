@@ -3,6 +3,7 @@ import { useLocation } from "wouter";
 import { motion } from "framer-motion";
 import { ArrowLeft, Clock, Tag, ArrowRight, Search } from "lucide-react";
 import { ARTICLES, CATEGORY_COLORS } from "./articles-data";
+import { useSEO } from "./hooks/useSEO";
 
 const CATEGORIES = ["Todos", "DAS & Impostos", "Faturamento", "Declaração", "Nota Fiscal", "Regularização", "Finanças", "Gestão", "Benefícios"];
 
@@ -10,6 +11,12 @@ export default function BlogPage() {
   const [, setLocation] = useLocation();
   const [search, setSearch] = React.useState("");
   const [activeCategory, setActiveCategory] = React.useState("Todos");
+
+  useSEO({
+    title: "Blog do MEI — Artigos sobre DAS, DASN, Nota Fiscal e Finanças",
+    description: "Aprenda tudo sobre MEI: DAS, declaração anual (DASN), nota fiscal, limite de faturamento, regularização de CNPJ e controle financeiro. Conteúdo gratuito e prático.",
+    canonical: "/artigos",
+  });
 
   const filtered = ARTICLES.filter((a) => {
     const matchCat = activeCategory === "Todos" || a.category === activeCategory;

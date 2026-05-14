@@ -2,6 +2,7 @@ import { useLocation, useParams } from "wouter";
 import { motion } from "framer-motion";
 import { ArrowLeft, Clock, Tag, ArrowRight } from "lucide-react";
 import { ARTICLES, CATEGORY_COLORS } from "./articles-data";
+import { useSEO } from "./hooks/useSEO";
 
 function renderContent(content: string) {
   const lines = content.split("\n");
@@ -108,6 +109,27 @@ export default function ArticlePage() {
   const [, setLocation] = useLocation();
 
   const article = ARTICLES.find(a => a.slug === params.slug);
+
+  useSEO({
+    title: article ? `${article.title} | Blog do MEI` : "Artigo não encontrado | EasyMei",
+    description: article ? article.excerpt : "Artigo não encontrado no Blog do MEI.",
+    canonical: article ? `/artigos/${article.slug}` : "/artigos",
+    ogType: "article",
+    jsonLd: article ? {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": article.title,
+      "description": article.excerpt,
+      "datePublished": article.date,
+      "author": { "@type": "Organization", "name": "EasyMei" },
+      "publisher": {
+        "@type": "Organization",
+        "name": "EasyMei",
+        "logo": { "@type": "ImageObject", "url": "https://easymei.com.br/logo.png" }
+      },
+      "mainEntityOfPage": { "@type": "WebPage", "@id": `https://easymei.com.br/artigos/${article.slug}` }
+    } : undefined,
+  });
 
   if (!article) {
     return (

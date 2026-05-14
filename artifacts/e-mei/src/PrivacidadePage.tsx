@@ -1,8 +1,16 @@
 import { useLocation } from "wouter";
 import { ArrowLeft } from "lucide-react";
+import { useSEO } from "./hooks/useSEO";
 
 export default function PrivacidadePage() {
   const [, setLocation] = useLocation();
+
+  useSEO({
+    title: "Política de Privacidade — EasyMei",
+    description: "Saiba como a EasyMei coleta, usa e protege seus dados pessoais, em conformidade com a LGPD (Lei nº 13.709/2018).",
+    canonical: "/privacidade",
+    noIndex: false,
+  });
 
   return (
     <div className="min-h-screen bg-background text-foreground font-sans">
