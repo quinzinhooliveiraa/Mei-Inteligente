@@ -25,7 +25,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import heroImage from "./assets/hero-illustration.png";
 
 function CalendlyWidget() {
   React.useEffect(() => {
@@ -404,36 +403,135 @@ export default function App() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative lg:ml-auto w-full max-w-lg aspect-[4/3] md:aspect-square lg:aspect-[4/3] xl:aspect-square"
+            className="relative lg:ml-auto w-full max-w-lg"
           >
-            <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-3xl transform rotate-3 scale-105 -z-10" />
-            <div className="w-full h-full rounded-3xl overflow-hidden border border-border/50 bg-card/50 shadow-2xl backdrop-blur-sm relative">
-              <img src={heroImage} alt="Dashboard EasyMei" className="w-full h-full object-cover opacity-90 mix-blend-screen" />
+            {/* Glow behind */}
+            <div className="absolute -inset-4 bg-primary/10 rounded-[2.5rem] blur-2xl -z-10" />
 
-              <div className="absolute top-6 right-6 glass-strong rounded-2xl p-4 shadow-2xl flex items-center gap-4 animate-float" style={{ animationDelay: "0.5s" }}>
-                <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
-                  <CheckCircle2 size={20} />
+            {/* Dashboard card */}
+            <div className="rounded-3xl border border-border/60 bg-[#1c1c1c] shadow-2xl overflow-hidden">
+
+              {/* Topbar */}
+              <div className="flex items-center justify-between px-5 py-4 border-b border-white/5">
+                <div className="flex items-center gap-2">
+                  <div className="w-6 h-6 rounded bg-primary flex items-center justify-center font-bold text-black text-xs">E</div>
+                  <span className="text-sm font-semibold tracking-tight">EasyMei</span>
                 </div>
-                <div>
-                  <p className="text-sm font-medium">DAS Pago</p>
-                  <p className="text-xs text-muted-foreground">Mês de Maio</p>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                  <span className="text-xs text-muted-foreground">CNPJ regular</span>
                 </div>
               </div>
 
-              <div className="absolute bottom-8 left-6 right-6 glass-strong rounded-2xl p-5 shadow-2xl animate-float-reverse" style={{ animationDelay: "1s" }}>
-                <p className="text-sm text-muted-foreground mb-1">Receita Mensal</p>
-                <div className="flex items-end justify-between">
-                  <p className="text-2xl font-bold">R$ 4.250<span className="text-sm text-muted-foreground font-normal">,00</span></p>
-                  <div className="flex items-center text-primary text-sm font-medium">
-                    <LineChart size={16} className="mr-1" />
-                    +12%
+              <div className="p-5 space-y-4">
+
+                {/* Cards de resumo */}
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="bg-[#252525] rounded-2xl p-4 border border-white/5">
+                    <p className="text-[11px] text-muted-foreground mb-1">Receita em Maio</p>
+                    <p className="text-xl font-bold">R$ 4.250</p>
+                    <div className="flex items-center gap-1 mt-1">
+                      <LineChart size={11} className="text-primary" />
+                      <span className="text-[10px] text-primary font-medium">+12% vs abril</span>
+                    </div>
+                  </div>
+                  <div className="bg-[#252525] rounded-2xl p-4 border border-white/5">
+                    <p className="text-[11px] text-muted-foreground mb-1">Limite MEI anual</p>
+                    <p className="text-xl font-bold">R$ 81k</p>
+                    <div className="flex items-center gap-1 mt-1">
+                      <span className="text-[10px] text-amber-400 font-medium">28% utilizado</span>
+                    </div>
                   </div>
                 </div>
-                <div className="w-full h-2 bg-white/10 rounded-full mt-4 overflow-hidden">
-                  <div className="h-full bg-primary w-[65%] rounded-full shadow-[0_0_8px_rgba(124,206,32,0.6)]" />
+
+                {/* Barra do limite */}
+                <div className="bg-[#252525] rounded-2xl p-4 border border-white/5">
+                  <div className="flex items-center justify-between mb-3">
+                    <p className="text-xs font-medium">Faturamento acumulado 2025</p>
+                    <span className="text-xs text-primary font-bold">R$ 22.750</span>
+                  </div>
+                  <div className="w-full h-2.5 bg-white/8 rounded-full overflow-hidden">
+                    <motion.div
+                      className="h-full bg-primary rounded-full"
+                      initial={{ width: 0 }}
+                      animate={{ width: "28%" }}
+                      transition={{ duration: 1.5, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                      style={{ boxShadow: "0 0 10px rgba(124,206,32,0.5)" }}
+                    />
+                  </div>
+                  <div className="flex justify-between mt-2">
+                    <span className="text-[10px] text-muted-foreground">R$ 0</span>
+                    <span className="text-[10px] text-muted-foreground">Limite: R$ 81.000</span>
+                  </div>
                 </div>
+
+                {/* DAS e mini gráfico */}
+                <div className="grid grid-cols-5 gap-3">
+
+                  {/* DAS */}
+                  <div className="col-span-2 bg-[#252525] rounded-2xl p-4 border border-white/5 flex flex-col justify-between">
+                    <div className="w-8 h-8 rounded-xl bg-primary/15 flex items-center justify-center mb-3">
+                      <CheckCircle2 size={16} className="text-primary" />
+                    </div>
+                    <div>
+                      <p className="text-[10px] text-muted-foreground">DAS Maio</p>
+                      <p className="text-sm font-bold text-primary">Pago</p>
+                      <p className="text-[10px] text-muted-foreground mt-0.5">R$ 71,60</p>
+                    </div>
+                  </div>
+
+                  {/* Gráfico de barras mini */}
+                  <div className="col-span-3 bg-[#252525] rounded-2xl p-4 border border-white/5">
+                    <p className="text-[10px] text-muted-foreground mb-3">Últimos 6 meses</p>
+                    <div className="flex items-end gap-1.5 h-14">
+                      {[40, 65, 45, 80, 55, 100].map((h, i) => (
+                        <motion.div
+                          key={i}
+                          className="flex-1 rounded-t-sm"
+                          style={{
+                            background: i === 5
+                              ? "rgba(124,206,32,1)"
+                              : `rgba(124,206,32,${0.15 + i * 0.07})`,
+                            boxShadow: i === 5 ? "0 0 8px rgba(124,206,32,0.4)" : "none"
+                          }}
+                          initial={{ height: 0 }}
+                          animate={{ height: `${h}%` }}
+                          transition={{ duration: 0.6, delay: 0.9 + i * 0.08, ease: [0.22, 1, 0.36, 1] }}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Última nota emitida */}
+                <div className="bg-[#252525] rounded-2xl px-4 py-3 border border-white/5 flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-xl bg-blue-500/10 flex items-center justify-center">
+                      <FileText size={14} className="text-blue-400" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-medium">NFS-e emitida</p>
+                      <p className="text-[10px] text-muted-foreground">Cliente: Loja ABC · R$ 850,00</p>
+                    </div>
+                  </div>
+                  <span className="text-[10px] bg-primary/10 text-primary px-2 py-1 rounded-full font-medium">Hoje</span>
+                </div>
+
               </div>
             </div>
+
+            {/* Badge flutuante */}
+            <motion.div
+              animate={{ y: [0, -6, 0] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -bottom-4 -right-4 glass-strong rounded-2xl px-4 py-3 shadow-2xl flex items-center gap-2.5 border border-border/50"
+            >
+              <BellRing size={14} className="text-primary" />
+              <div>
+                <p className="text-[11px] font-semibold">DAS vence em 5 dias</p>
+                <p className="text-[10px] text-muted-foreground">Maio · R$ 71,60</p>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
