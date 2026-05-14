@@ -379,13 +379,6 @@ export default function App() {
                 Agendar uma conversa
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button
-                variant="outline"
-                className="h-13 px-7 text-base md:text-lg font-medium rounded-full border-border hover:bg-secondary"
-                onClick={() => document.getElementById("funcionalidades")?.scrollIntoView({ behavior: "smooth" })}
-              >
-                O que está incluído
-              </Button>
             </motion.div>
 
             <motion.div variants={fadeInUp} className="mt-8 flex items-center gap-3 text-sm text-muted-foreground">
