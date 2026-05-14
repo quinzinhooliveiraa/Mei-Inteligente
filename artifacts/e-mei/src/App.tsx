@@ -92,7 +92,7 @@ function StatBar({ pct, delay = 0, inView }: { pct: number; delay?: number; inVi
 
 function StatsSection() {
   const ref = React.useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
+  const inView = useInView(ref, { once: true, amount: 0.1 });
 
   const count126 = useCounter(126, 1800, inView);
   const count38 = useCounter(38, 1600, inView);
@@ -177,7 +177,7 @@ function StatsSection() {
 
 function RealidadeSection() {
   const ref = React.useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
+  const inView = useInView(ref, { once: true, amount: 0.1 });
 
   return (
     <section ref={ref} className="py-16 md:py-28 relative overflow-hidden">
