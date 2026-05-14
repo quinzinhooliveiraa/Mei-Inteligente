@@ -753,12 +753,23 @@ export default function App() {
           <p className="text-base md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
             Provavelmente porque sente que dá para organizar melhor. Que dá para crescer mais. Que falta uma equipe de confiança cuidando dessa parte. A gente pode ser esse time. Começa com uma conversa de 45 minutos.
           </p>
-          <Button
-            className="bg-primary text-primary-foreground hover:bg-primary/90 h-16 px-10 text-xl font-bold rounded-full animate-glow-pulse hover:scale-105 transition-transform inline-flex items-center gap-2"
-            onClick={() => document.getElementById("agendar")?.scrollIntoView({ behavior: "smooth" })}
-          >
-            <Calendar size={20} /> Fazer meu diagnóstico gratuito
-          </Button>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button
+              className="bg-primary text-primary-foreground hover:bg-primary/90 h-14 px-10 text-lg font-bold rounded-full animate-glow-pulse hover:scale-105 transition-transform inline-flex items-center gap-2"
+              onClick={() => document.getElementById("agendar")?.scrollIntoView({ behavior: "smooth" })}
+            >
+              <Calendar size={18} /> Fazer meu diagnóstico gratuito
+            </Button>
+            <a
+              href="https://wa.me/5533912406270"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="h-14 px-8 text-lg font-semibold rounded-full border border-border hover:border-primary hover:text-primary transition-colors inline-flex items-center gap-2 text-muted-foreground"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+              Falar pelo WhatsApp
+            </a>
+          </div>
           <p className="mt-4 text-sm text-muted-foreground">Gratuito. Sem compromisso. Sem enrolação.</p>
         </div>
       </section>
@@ -775,15 +786,26 @@ export default function App() {
               <p className="text-muted-foreground text-sm leading-relaxed mb-5">
                 Cuidamos de toda a burocracia do seu MEI para você focar no que realmente importa.
               </p>
-              <a
-                href="https://www.instagram.com/easy.mei/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors inline-block"
-                aria-label="Instagram da EasyMei"
-              >
-                <Instagram size={20} />
-              </a>
+              <div className="flex items-center gap-4 mt-1">
+                <a
+                  href="https://www.instagram.com/easy.mei/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                  aria-label="Instagram da EasyMei"
+                >
+                  <Instagram size={20} />
+                </a>
+                <a
+                  href="https://wa.me/5533912406270"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                  aria-label="WhatsApp da EasyMei"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                </a>
+              </div>
             </div>
 
             <div>
