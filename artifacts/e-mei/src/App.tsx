@@ -2,6 +2,7 @@ import React from "react";
 import { useLocation } from "wouter";
 import { motion, useInView } from "framer-motion";
 import { useSEO } from "./hooks/useSEO";
+import { useTheme } from "./hooks/useTheme";
 import {
   ArrowRight,
   CheckCircle2,
@@ -251,6 +252,7 @@ export default function App() {
   const [, setLocation] = useLocation();
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
+  const { theme, toggle } = useTheme();
 
   useSEO({
     title: "EasyMei — Gestão de MEI Inteligente | DAS, Notas e Declaração",
@@ -282,15 +284,33 @@ export default function App() {
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-background/80 backdrop-blur-lg border-b border-border/50 py-3" : "bg-transparent py-5"}`}>
         <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <img src="/logo.png" alt="EasyMei" className="h-16 w-auto" />
+            <img
+              src={theme === "light" ? "/logo-light.png" : "/logo.png"}
+              alt="EasyMei"
+              className="h-16 w-auto"
+            />
           </div>
 
-          <Button
-            className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full px-5 md:px-6 text-sm flex items-center gap-2"
-            onClick={() => document.getElementById("agendar")?.scrollIntoView({ behavior: "smooth" })}
-          >
-            <Calendar size={15} /> <span className="hidden sm:inline">Agendar uma conversa</span><span className="sm:hidden">Agendar</span>
-          </Button>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={toggle}
+              aria-label="Alternar tema"
+              className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary/40 transition-all"
+              title={theme === "dark" ? "Mudar para modo claro" : "Mudar para modo escuro"}
+            >
+              {theme === "dark" ? (
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+              ) : (
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+              )}
+            </button>
+            <Button
+              className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full px-5 md:px-6 text-sm flex items-center gap-2"
+              onClick={() => document.getElementById("agendar")?.scrollIntoView({ behavior: "smooth" })}
+            >
+              <Calendar size={15} /> <span className="hidden sm:inline">Agendar uma conversa</span><span className="sm:hidden">Agendar</span>
+            </Button>
+          </div>
         </div>
       </header>
 
