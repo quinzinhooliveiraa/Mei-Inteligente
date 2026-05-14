@@ -267,10 +267,10 @@ function RealidadeSection() {
           className="max-w-2xl mx-auto glass rounded-3xl p-8 md:p-10 border border-primary/20 text-center"
         >
           <p className="text-xl md:text-2xl font-light tracking-wide leading-snug mb-3">
-            Foi exatamente por isso que esse serviço existe.
+            Foi exatamente por isso que a EasyMei existe.
           </p>
           <p className="text-sm text-muted-foreground leading-relaxed mb-6">
-            Para que cada MEI tenha alguém de confiança cuidando das obrigações, com clareza sobre o que está acontecendo e segurança para tomar decisões que fazem o negócio crescer de verdade.
+            Para que cada MEI tenha uma equipe de confiança cuidando das obrigações, com clareza sobre o que está acontecendo e segurança para tomar decisões que fazem o negócio crescer de verdade.
           </p>
           <Button
             className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full font-semibold px-7 inline-flex items-center gap-2"
@@ -363,11 +363,11 @@ export default function App() {
 
             <motion.h1 variants={fadeInUp} className="text-[2.1rem] leading-[1.2] md:text-7xl font-light tracking-wide mb-5 md:leading-[1.1]">
               Você cuida do negócio.{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-green-300">Eu cuido do resto.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-green-300">A gente cuida do resto.</span>
             </motion.h1>
 
             <motion.p variants={fadeInUp} className="text-base md:text-xl text-muted-foreground mb-7 leading-relaxed max-w-xl">
-              DAS em dia, notas emitidas, declaração feita. Eu assumo toda a burocracia do seu MEI para você focar no que realmente importa: trabalhar e crescer.
+              DAS em dia, notas emitidas, declaração feita. A gente assume toda a burocracia do seu MEI para você focar no que realmente importa: trabalhar e crescer.
             </motion.p>
 
             <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-3">
@@ -547,11 +547,11 @@ export default function App() {
         <div className="container mx-auto px-6 md:px-12">
           <div className="text-center max-w-3xl mx-auto mb-10 md:mb-16">
             <h2 className="text-2xl md:text-5xl font-light tracking-wide mb-4 md:mb-5">
-              O que eu faço pelo seu MEI,{" "}
+              O que fazemos pelo seu MEI,{" "}
               <span className="text-primary">todo mês.</span>
             </h2>
             <p className="text-base md:text-lg text-muted-foreground">
-              Você me repassa as informações. Eu cuido de tudo. Sem app para aprender, sem processo complicado, sem dor de cabeça.
+              Você nos repassa as informações. A gente cuida de tudo. Sem app para aprender, sem processo complicado, sem dor de cabeça.
             </p>
           </div>
 
@@ -560,12 +560,12 @@ export default function App() {
               {
                 icon: <Wallet className="w-6 h-6" />,
                 title: "DAS em dia, sem falta",
-                desc: "Gero e envio a guia DAS todo mês com antecedência. Você só paga. Chega de multa e juros por esquecimento."
+                desc: "Geramos e enviamos a guia DAS todo mês com antecedência. Você só paga. Chega de multa e juros por esquecimento."
               },
               {
                 icon: <FileText className="w-6 h-6" />,
-                title: "Notas emitidas por mim",
-                desc: "Me manda os dados do serviço prestado e eu emito a NFS-e no portal da sua prefeitura. Rápido, sem erro, sem dor de cabeça."
+                title: "Notas emitidas por nós",
+                desc: "Manda os dados do serviço prestado e a gente emite a NFS-e no portal da sua prefeitura. Rápido, sem erro, sem dor de cabeça."
               },
               {
                 icon: <LineChart className="w-6 h-6" />,
@@ -580,7 +580,7 @@ export default function App() {
               {
                 icon: <ShieldCheck className="w-6 h-6" />,
                 title: "Declaração anual sem estresse",
-                desc: "Na época da DASN-SIMEI, eu reúno todos os dados do ano e faço a transmissão para você. Você só me confirma os números."
+                desc: "Na época da DASN-SIMEI, reunimos todos os dados do ano e fazemos a transmissão para você. Você só confirma os números."
               },
               {
                 icon: <CheckCircle2 className="w-6 h-6" />,
@@ -649,9 +649,9 @@ export default function App() {
               className="lg:col-span-2 space-y-4"
             >
               {[
-                { icon: "🔍", title: "Entendo sua situação atual", desc: "Vejo o que está em dia, o que está atrasado, quais riscos você tem agora e o que precisa de atenção imediata." },
+                { icon: "🔍", title: "Entendemos sua situação atual", desc: "Olhamos o que está em dia, o que está atrasado, quais riscos você tem agora e o que precisa de atenção imediata." },
                 { icon: "💡", title: "Você sai com clareza", desc: "Sem jargão, sem enrolação. Em 45 minutos você entende exatamente o que está acontecendo no seu MEI." },
-                { icon: "🗺️", title: "Traçamos um caminho juntos", desc: "Se fizer sentido trabalharmos juntos, te explico como funciona o serviço e combinamos os próximos passos." },
+                { icon: "🗺️", title: "Traçamos um caminho juntos", desc: "Se fizer sentido trabalharmos juntos, explicamos como funciona o serviço e combinamos os próximos passos." },
                 { icon: "🔒", title: "Sem pressão, sem script de vendas", desc: "Se não fizer sentido, tudo bem. A conversa já tem valor por si mesma e você sai com informações úteis de qualquer forma." },
               ].map((item, i) => (
                 <motion.div
@@ -756,24 +756,24 @@ export default function App() {
           <Accordion type="single" collapsible className="w-full space-y-3">
             {[
               {
-                q: "Como você acessa os dados do meu MEI?",
-                a: "Você me repassa os acessos necessários ao portal do MEI ou me autoriza pontualmente conforme a demanda. Trabalho sempre com sigilo e responsabilidade, em conformidade com a LGPD."
+                q: "Como vocês acessam os dados do meu MEI?",
+                a: "Você nos repassa os acessos necessários ao portal do MEI ou nos autoriza pontualmente conforme a demanda. Trabalhamos sempre com sigilo e responsabilidade, em conformidade com a LGPD."
               },
               {
-                q: "Você emite nota para qualquer cidade?",
-                a: "Sim. Trabalho com NFS-e pelo padrão nacional e pelos portais das prefeituras de todo o Brasil. Se sua cidade tiver sistema próprio, já conheço o processo."
+                q: "Vocês emitem nota para qualquer cidade?",
+                a: "Sim. Trabalhamos com NFS-e pelo padrão nacional e pelos portais das prefeituras de todo o Brasil. Se sua cidade tiver sistema próprio, já conhecemos o processo."
               },
               {
                 q: "Como funciona a Declaração Anual?",
-                a: "Durante o ano, organizo todas as suas receitas. Na época da DASN-SIMEI, você me confirma os dados e eu faço a transmissão para a Receita Federal. Você não precisa fazer nada."
+                a: "Durante o ano, organizamos todas as suas receitas. Na época da DASN-SIMEI, você nos confirma os dados e fazemos a transmissão para a Receita Federal. Você não precisa fazer nada."
               },
               {
                 q: "Qual o valor do serviço?",
                 a: "O valor é definido conforme o volume de atividades do seu MEI: número de notas, movimentação financeira e necessidades específicas. Combinamos tudo na conversa de diagnóstico, sem surpresa."
               },
               {
-                q: "Você paga o DAS por mim?",
-                a: "Gero a guia e envio o código Pix para você pagar no seu banco. O pagamento é sempre feito por você. Eu cuido de gerar, conferir e te avisar com antecedência."
+                q: "Vocês pagam o DAS por mim?",
+                a: "Geramos a guia e enviamos o código Pix para você pagar no seu banco. O pagamento é sempre feito por você. A gente cuida de gerar, conferir e avisar com antecedência."
               }
             ].map((faq, i) => (
               <AccordionItem key={i} value={`item-${i}`} className="glass rounded-xl px-6">
@@ -797,7 +797,7 @@ export default function App() {
             Você chegou até aqui por algum motivo.
           </h2>
           <p className="text-base md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
-            Provavelmente porque sente que dá para organizar melhor. Que dá para crescer mais. Que falta alguém de confiança cuidando dessa parte. Eu posso ser essa pessoa. Começa com uma conversa de 45 minutos.
+            Provavelmente porque sente que dá para organizar melhor. Que dá para crescer mais. Que falta uma equipe de confiança cuidando dessa parte. A gente pode ser esse time. Começa com uma conversa de 45 minutos.
           </p>
           <Button
             className="bg-primary text-primary-foreground hover:bg-primary/90 h-16 px-10 text-xl font-bold rounded-full animate-glow-pulse hover:scale-105 transition-transform inline-flex items-center gap-2"
