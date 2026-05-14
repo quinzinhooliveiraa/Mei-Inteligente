@@ -240,46 +240,6 @@ function RealidadeSection() {
           ))}
         </div>
 
-        {/* Frases estratégicas */}
-        <div className="grid sm:grid-cols-3 gap-3 max-w-5xl mx-auto mb-12">
-          {[
-            "Faturamento alto não significa lucro.",
-            "Muitos MEIs fecham por falta de organização.",
-            "Entender seu negócio é tão importante quanto vender.",
-          ].map((frase, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 16 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.45 + i * 0.1 }}
-              className="flex items-center gap-3 px-5 py-4 rounded-2xl bg-secondary/40 border border-border/30"
-            >
-              <div className="w-1 h-8 bg-primary rounded-full shrink-0" />
-              <p className="font-medium text-sm leading-snug">{frase}</p>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Virada narrativa: apresenta o e-mei como resposta */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.97 }}
-          animate={inView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.75 }}
-          className="max-w-2xl mx-auto glass rounded-3xl p-8 md:p-10 border border-primary/20 text-center"
-        >
-          <p className="text-xl md:text-2xl font-light tracking-wide leading-snug mb-3">
-            Foi exatamente por isso que a EasyMei existe.
-          </p>
-          <p className="text-sm text-muted-foreground leading-relaxed mb-6">
-            Para que cada MEI tenha uma equipe de confiança cuidando das obrigações, com clareza sobre o que está acontecendo e segurança para tomar decisões que fazem o negócio crescer de verdade.
-          </p>
-          <Button
-            className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full font-semibold px-7 inline-flex items-center gap-2"
-            onClick={() => document.getElementById("agendar")?.scrollIntoView({ behavior: "smooth" })}
-          >
-            <Calendar size={16} /> Fazer meu diagnóstico gratuito
-          </Button>
-        </motion.div>
 
       </div>
     </section>
