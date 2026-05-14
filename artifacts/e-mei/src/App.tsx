@@ -309,7 +309,7 @@ export default function App() {
 
           <nav className="hidden md:flex items-center gap-8">
             <a href="#funcionalidades" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Funcionalidades</a>
-            <a href="#como-funciona" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Como funciona</a>
+            <a href="#agendar" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Diagnóstico gratuito</a>
             <a href="#faq" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">FAQ</a>
           </nav>
 
@@ -332,7 +332,7 @@ export default function App() {
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-40 bg-background/95 backdrop-blur-xl pt-24 px-6 md:hidden flex flex-col gap-6">
           <a href="#funcionalidades" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-medium border-b border-border pb-4">Funcionalidades</a>
-          <a href="#como-funciona" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-medium border-b border-border pb-4">Como funciona</a>
+          <a href="#agendar" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-medium border-b border-border pb-4">Diagnóstico gratuito</a>
           <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-medium border-b border-border pb-4">FAQ</a>
           <div className="flex flex-col gap-4 mt-8">
             <Button
@@ -604,97 +604,6 @@ export default function App() {
                 <p className="text-muted-foreground text-sm leading-relaxed">{feature.desc}</p>
               </motion.div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Como funciona — a prova que é simples */}
-      <section id="como-funciona" className="py-16 md:py-32 relative overflow-hidden">
-        <div className="container mx-auto px-6 md:px-12">
-          <div className="flex flex-col lg:flex-row gap-16 items-center">
-            <div className="lg:w-1/2">
-              <h2 className="text-2xl md:text-5xl font-light tracking-wide mb-4">
-                Começa em minutos.{" "}
-                <span className="text-primary">Funciona pra sempre.</span>
-              </h2>
-              <p className="text-base md:text-lg text-muted-foreground mb-12">
-                Não precisa instalar nada. Não precisa de contador. Não precisa de treinamento. Em três passos você já tem tudo organizado.
-              </p>
-
-              <div className="space-y-12">
-                {[
-                  { step: "01", title: "Crie sua conta grátis", desc: "Leva menos de 2 minutos. Só precisa do seu CNPJ para começar." },
-                  { step: "02", title: "Configure seu MEI", desc: "O sistema importa seus dados direto da Receita Federal. Você não precisa digitar nada." },
-                  { step: "03", title: "Tudo no controle", desc: "Suas guias, notas e relatórios já estão disponíveis. Só acessar e usar." }
-                ].map((item, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: i * 0.2 }}
-                    className="flex gap-6 relative"
-                  >
-                    {i !== 2 && <div className="absolute left-6 top-16 bottom-[-3rem] w-px bg-border"></div>}
-                    <div className="w-12 h-12 shrink-0 rounded-full bg-card border border-border flex items-center justify-center font-bold text-primary z-10">
-                      {item.step}
-                    </div>
-                    <div>
-                      <h4 className="text-xl font-medium tracking-wide mb-2">{item.title}</h4>
-                      <p className="text-muted-foreground">{item.desc}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-
-            <div className="lg:w-1/2 w-full">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7 }}
-                className="glass rounded-3xl p-8 shadow-2xl relative animate-float-slow"
-              >
-                <div className="flex items-center justify-between mb-8 pb-6 border-b border-border">
-                  <div>
-                    <h3 className="text-lg font-bold">Meu CNPJ</h3>
-                    <p className="text-sm text-muted-foreground">12.345.678/0001-90</p>
-                  </div>
-                  <div className="bg-primary/20 text-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
-                    Regular
-                  </div>
-                </div>
-
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between p-4 bg-secondary rounded-xl">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-background rounded-full flex items-center justify-center text-muted-foreground">
-                        <Wallet size={18} />
-                      </div>
-                      <div>
-                        <p className="font-medium text-sm">DAS Competência Abril</p>
-                        <p className="text-xs text-primary">Vence em 5 dias</p>
-                      </div>
-                    </div>
-                    <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90">Pagar</Button>
-                  </div>
-
-                  <div className="flex items-center justify-between p-4 bg-background border border-border rounded-xl opacity-75">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-secondary rounded-full flex items-center justify-center">
-                        <CheckCircle2 size={18} className="text-primary" />
-                      </div>
-                      <div>
-                        <p className="font-medium text-sm text-muted-foreground line-through">DAS Competência Março</p>
-                        <p className="text-xs text-muted-foreground">Pago em 18/04</p>
-                      </div>
-                    </div>
-                    <span className="text-sm font-medium text-muted-foreground">R$ 71,60</span>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
           </div>
         </div>
       </section>
