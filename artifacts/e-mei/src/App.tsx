@@ -272,6 +272,7 @@ export default function App() {
             <a href="#sobre" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Sobre</a>
             <a href="#agendar" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Diagnóstico gratuito</a>
             <a href="#faq" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">FAQ</a>
+            <a href="/artigos" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Blog</a>
           </nav>
 
           <div className="hidden md:flex items-center gap-4">
@@ -296,6 +297,7 @@ export default function App() {
           <a href="#sobre" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-medium border-b border-border pb-4">Sobre</a>
           <a href="#agendar" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-medium border-b border-border pb-4">Diagnóstico gratuito</a>
           <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-medium border-b border-border pb-4">FAQ</a>
+          <a href="/artigos" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-medium border-b border-border pb-4">Blog</a>
           <div className="flex flex-col gap-4 mt-8">
             <Button
               className="w-full bg-primary text-primary-foreground hover:bg-primary/90 text-lg py-6 rounded-full flex items-center gap-2 justify-center"
@@ -858,9 +860,9 @@ export default function App() {
             <div>
               <h4 className="font-bold mb-4 text-sm">Para você</h4>
               <ul className="space-y-3 text-sm text-muted-foreground">
-                <li><a href="#" className="hover:text-primary transition-colors">Blog do MEI</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Tire suas dúvidas</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Guia do MEI iniciante</a></li>
+                <li><a href="/artigos" className="hover:text-primary transition-colors">Blog do MEI</a></li>
+                <li><a href="/artigos" className="hover:text-primary transition-colors">Tire suas dúvidas</a></li>
+                <li><a href="/artigos" className="hover:text-primary transition-colors">Guia do MEI iniciante</a></li>
               </ul>
             </div>
 
