@@ -268,7 +268,7 @@ function RealidadeSection() {
           className="max-w-2xl mx-auto glass rounded-3xl p-8 md:p-10 border border-primary/20 text-center"
         >
           <p className="text-xl md:text-2xl font-light tracking-wide leading-snug mb-3">
-            Foi exatamente por isso que criamos o e-mei.
+            Foi exatamente por isso que criamos o EasyMei.
           </p>
           <p className="text-sm text-muted-foreground leading-relaxed mb-6">
             Para que cada MEI tenha clareza sobre o próprio negócio, controle sobre as obrigações e segurança para tomar decisões que façam o negócio crescer de verdade.
@@ -305,7 +305,7 @@ export default function App() {
         <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 rounded bg-primary flex items-center justify-center text-primary-foreground font-bold text-xl leading-none">e</div>
-            <span className="font-light text-2xl tracking-widest">e-mei</span>
+            <span className="font-light text-xl tracking-wide">EasyMei</span>
           </div>
 
           <nav className="hidden md:flex items-center gap-8">
@@ -368,7 +368,7 @@ export default function App() {
             </motion.h1>
 
             <motion.p variants={fadeInUp} className="text-base md:text-xl text-muted-foreground mb-7 leading-relaxed max-w-xl">
-              DAS em dia, notas emitidas, receitas organizadas. O e-mei resolve a parte chata para você parar de apagar incêndio e começar a crescer com segurança.
+              DAS em dia, notas emitidas, receitas organizadas. O EasyMei resolve a parte chata para você parar de apagar incêndio e começar a crescer com segurança.
             </motion.p>
 
             <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-3">
@@ -408,7 +408,7 @@ export default function App() {
           >
             <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-3xl transform rotate-3 scale-105 -z-10" />
             <div className="w-full h-full rounded-3xl overflow-hidden border border-border/50 bg-card/50 shadow-2xl backdrop-blur-sm relative">
-              <img src={heroImage} alt="Dashboard e-mei" className="w-full h-full object-cover opacity-90 mix-blend-screen" />
+              <img src={heroImage} alt="Dashboard EasyMei" className="w-full h-full object-cover opacity-90 mix-blend-screen" />
 
               <div className="absolute top-6 right-6 glass-strong rounded-2xl p-4 shadow-2xl flex items-center gap-4 animate-float" style={{ animationDelay: "0.5s" }}>
                 <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
@@ -749,12 +749,12 @@ export default function App() {
           <Accordion type="single" collapsible className="w-full space-y-3">
             {[
               {
-                q: "Como o e-mei acessa meus dados do MEI?",
+                q: "Como o EasyMei acessa meus dados do MEI?",
                 a: "Conectamos com os sistemas da Receita Federal usando seu CNPJ. Apenas lemos e organizamos suas informações, sem alterar nada. Tudo em conformidade com a LGPD."
               },
               {
                 q: "Posso emitir nota fiscal para qualquer cidade?",
-                a: "Sim. O e-mei é integrado com o padrão nacional NFS-e e com mais de 1.000 municípios. Se sua cidade tiver sistema próprio, o e-mei vai te direcionar corretamente."
+                a: "Sim. O EasyMei é integrado com o padrão nacional NFS-e e com mais de 1.000 municípios. Se sua cidade tiver sistema próprio, o EasyMei vai te direcionar corretamente."
               },
               {
                 q: "Como funciona a Declaração Anual?",
@@ -809,10 +809,10 @@ export default function App() {
             <div className="col-span-2 md:col-span-1">
               <div className="flex items-center gap-2 mb-5">
                 <div className="w-8 h-8 rounded bg-primary flex items-center justify-center text-primary-foreground font-bold text-xl leading-none">e</div>
-                <span className="font-light text-2xl tracking-widest">e-mei</span>
+                <span className="font-light text-xl tracking-wide">EasyMei</span>
               </div>
               <p className="text-muted-foreground text-sm leading-relaxed">
-                A plataforma que descomplica a vida do Microempreendedor Individual no Brasil.
+                A plataforma EasyMei descomplica a vida do Microempreendedor Individual no Brasil.
               </p>
             </div>
 
@@ -853,7 +853,7 @@ export default function App() {
                 tabIndex={-1}
                 aria-hidden="true"
               >©</button>
-              {" "}{new Date().getFullYear()} e-mei Tecnologia S.A. Todos os direitos reservados.
+              {" "}{new Date().getFullYear()} EasyMei Tecnologia S.A. Todos os direitos reservados.
             </p>
             <p>CNPJ: 00.000.000/0001-00</p>
           </div>

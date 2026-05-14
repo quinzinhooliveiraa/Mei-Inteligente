@@ -215,7 +215,7 @@ export default function Config() {
           <div className="flex items-center justify-between py-4">
             <div>
               <p className="text-sm font-medium text-gray-800">E-mail</p>
-              <p className="text-xs text-gray-400">contato@e-mei.com.br</p>
+              <p className="text-xs text-gray-400">contato@easymei.com.br</p>
             </div>
             <button className="text-xs font-medium border border-gray-200 px-4 py-1.5 rounded-lg text-gray-600 hover:bg-gray-50 transition-colors">Enviar</button>
           </div>

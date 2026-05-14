@@ -88,8 +88,8 @@ function Sidebar({ onClose }: { onClose?: () => void }) {
           title="Voltar ao site"
         >
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-[#7cce20] flex items-center justify-center font-bold text-black text-base group-hover:scale-105 transition-transform">e</div>
-            <span className="font-semibold text-base tracking-tight group-hover:text-[#7cce20] transition-colors">e-mei</span>
+            <div className="w-8 h-8 rounded-lg bg-[#7cce20] flex items-center justify-center font-bold text-black text-base group-hover:scale-105 transition-transform">E</div>
+            <span className="font-semibold text-base tracking-tight group-hover:text-[#7cce20] transition-colors">EasyMei</span>
           </div>
           <p className="text-[10px] text-gray-600 mt-0.5 ml-10 group-hover:text-gray-400 transition-colors">MEI INTELIGENTE</p>
         </button>

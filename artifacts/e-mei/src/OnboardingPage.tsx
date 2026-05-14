@@ -97,8 +97,8 @@ function MockDashboard() {
       {/* Sidebar */}
       <div className="w-44 shrink-0 bg-[#111] border-r border-white/5 flex flex-col gap-1 p-3">
         <div className="flex items-center gap-2 px-2 py-3 mb-2">
-          <div className="w-7 h-7 rounded bg-primary flex items-center justify-center text-xs font-bold text-black">e</div>
-          <span className="text-sm font-medium">e-mei</span>
+          <div className="w-7 h-7 rounded bg-primary flex items-center justify-center text-xs font-bold text-black">E</div>
+          <span className="text-sm font-medium">EasyMei</span>
         </div>
         {[
           { icon: LayoutDashboard, label: "Dashboard", active: true },

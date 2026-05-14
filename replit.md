@@ -1,6 +1,6 @@
-# e-mei — MEI inteligente
+# EasyMei — MEI inteligente
 
-Landing page para o produto e-mei, plataforma de gestão inteligente para Microempreendedores Individuais (MEI) brasileiros.
+Landing page para o produto EasyMei, plataforma de gestão inteligente para Microempreendedores Individuais (MEI) brasileiros.
 
 ## Run & Operate
 

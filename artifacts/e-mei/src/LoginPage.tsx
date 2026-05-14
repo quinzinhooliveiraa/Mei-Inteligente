@@ -60,9 +60,9 @@ export default function LoginPage() {
         {/* Logo */}
         <button onClick={() => setLocation("/")} className="flex items-center gap-2.5 w-fit">
           <div className="w-9 h-9 rounded-lg bg-primary flex items-center justify-center text-primary-foreground font-bold text-base leading-none">
-            e
+            E
           </div>
-          <span className="text-lg font-semibold tracking-tight">e-mei</span>
+          <span className="text-lg font-semibold tracking-tight">EasyMei</span>
         </button>
 
         {/* Center content */}
@@ -89,7 +89,7 @@ export default function LoginPage() {
         </div>
 
         {/* Bottom */}
-        <p className="text-xs text-muted-foreground/50">© 2025 e-mei · Todos os direitos reservados</p>
+        <p className="text-xs text-muted-foreground/50">© 2025 EasyMei · Todos os direitos reservados</p>
       </div>
 
       {/* Right panel */}
@@ -98,9 +98,9 @@ export default function LoginPage() {
         <div className="lg:hidden flex items-center justify-between px-6 py-5 border-b border-border">
           <button onClick={() => setLocation("/")} className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-primary-foreground font-bold text-sm">
-              e
+              E
             </div>
-            <span className="font-semibold">e-mei</span>
+            <span className="font-semibold">EasyMei</span>
           </button>
         </div>
 
@@ -119,7 +119,7 @@ export default function LoginPage() {
               {tab === "signup" ? "Crie sua conta grátis" : "Bem-vindo de volta"}
             </h1>
             <p className="text-sm text-muted-foreground mb-8">
-              {tab === "signup" ? "Organize seu MEI em segundos" : "Entre na sua conta e-mei"}
+              {tab === "signup" ? "Organize seu MEI em segundos" : "Entre na sua conta EasyMei"}
             </p>
 
             {/* Tab switcher */}
