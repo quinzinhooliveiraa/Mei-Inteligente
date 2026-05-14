@@ -851,9 +851,9 @@ export default function App() {
             <div>
               <h4 className="font-bold mb-4 text-sm">Serviços</h4>
               <ul className="space-y-3 text-sm text-muted-foreground">
-                <li><a href="#funcionalidades" className="hover:text-primary transition-colors">O que fazemos</a></li>
-                <li><a href="#agendar" className="hover:text-primary transition-colors">Diagnóstico gratuito</a></li>
-                <li><a href="#faq" className="hover:text-primary transition-colors">Perguntas frequentes</a></li>
+                <li><button onClick={() => document.getElementById("funcionalidades")?.scrollIntoView({ behavior: "smooth" })} className="hover:text-primary transition-colors text-left">O que fazemos</button></li>
+                <li><button onClick={() => document.getElementById("agendar")?.scrollIntoView({ behavior: "smooth" })} className="hover:text-primary transition-colors text-left">Diagnóstico gratuito</button></li>
+                <li><button onClick={() => document.getElementById("faq")?.scrollIntoView({ behavior: "smooth" })} className="hover:text-primary transition-colors text-left">Perguntas frequentes</button></li>
               </ul>
             </div>
 
@@ -869,10 +869,10 @@ export default function App() {
             <div>
               <h4 className="font-bold mb-4 text-sm">Empresa</h4>
               <ul className="space-y-3 text-sm text-muted-foreground">
-                <li><a href="#" className="hover:text-primary transition-colors">Sobre nós</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Contato</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Termos de Uso</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Privacidade</a></li>
+                <li><button onClick={() => document.getElementById("sobre")?.scrollIntoView({ behavior: "smooth" })} className="hover:text-primary transition-colors text-left">Sobre nós</button></li>
+                <li><a href="https://wa.me/5533912406270" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Contato</a></li>
+                <li><span className="text-muted-foreground/50 cursor-default select-none">Termos de Uso</span></li>
+                <li><span className="text-muted-foreground/50 cursor-default select-none">Privacidade</span></li>
               </ul>
             </div>
           </div>
