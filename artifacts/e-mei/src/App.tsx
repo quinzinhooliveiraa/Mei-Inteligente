@@ -819,9 +819,18 @@ export default function App() {
                 <div className="w-8 h-8 rounded bg-primary flex items-center justify-center text-primary-foreground font-bold text-xl leading-none">e</div>
                 <span className="font-light text-xl tracking-wide">EasyMei</span>
               </div>
-              <p className="text-muted-foreground text-sm leading-relaxed">
+              <p className="text-muted-foreground text-sm leading-relaxed mb-5">
                 Cuidamos de toda a burocracia do seu MEI para você focar no que realmente importa.
               </p>
+              <a
+                href="https://www.instagram.com/easy.mei/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-colors inline-block"
+                aria-label="Instagram da EasyMei"
+              >
+                <Instagram size={20} />
+              </a>
             </div>
 
             <div>
@@ -863,17 +872,6 @@ export default function App() {
               >©</button>
               {" "}{new Date().getFullYear()} EasyMei. Todos os direitos reservados.
             </p>
-            <div className="flex items-center gap-4">
-              <a
-                href="https://www.instagram.com/easy.mei/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-primary transition-colors"
-                aria-label="Instagram da EasyMei"
-              >
-                <Instagram size={18} />
-              </a>
-            </div>
           </div>
         </div>
       </footer>
