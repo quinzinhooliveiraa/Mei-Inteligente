@@ -863,16 +863,15 @@ export default function App() {
               >©</button>
               {" "}{new Date().getFullYear()} EasyMei. Todos os direitos reservados.
             </p>
-            <div className="flex items-center gap-5">
+            <div className="flex items-center gap-4">
               <a
                 href="https://www.instagram.com/easy.mei/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 hover:text-primary transition-colors"
+                className="hover:text-primary transition-colors"
                 aria-label="Instagram da EasyMei"
               >
-                <Instagram size={14} />
-                @easy.mei
+                <Instagram size={18} />
               </a>
             </div>
           </div>
