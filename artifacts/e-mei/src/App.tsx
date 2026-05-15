@@ -379,7 +379,7 @@ export default function App() {
                   </div>
                 ))}
               </div>
-              <p>Mais de <strong className="text-foreground">200 MEIs</strong> com a burocracia resolvida todo mês.</p>
+              <p>Mais de <strong className="text-foreground">40 MEIs</strong> com a burocracia resolvida todo mês.</p>
             </motion.div>
           </motion.div>
 
