@@ -680,22 +680,25 @@ export default function App() {
           <div className="grid md:grid-cols-3 gap-6 md:gap-8">
             {[
               {
-                name: "Mariana Silva",
-                role: "Designer Freelancer",
-                content: "Perdia horas todo mês tentando emitir nota no site da prefeitura, sempre com algum erro. Agora mando os dados e a nota chega no meu e-mail pronta. Não tem preço.",
-                img: "1"
+                name: "Mariana Alves",
+                role: "Proprietária de Salão de Beleza",
+                content: "Ficava o dia inteiro no salão e quando sobrava tempo pra olhar o financeiro, já tinha DAS atrasado e dinheiro do salão misturado com o meu. Não sabia nem quanto eu tava faturando de verdade. Depois que comecei a usar a EasyMEI, isso acabou. Hoje sei exatamente o que entra, o que sai, e não fico mais com aquela sensação de que tô trabalhando muito sem ver resultado.",
+                img: "/depo-mariana.jpeg",
+                imgStyle: "object-cover"
               },
               {
-                name: "Carlos Eduardo",
-                role: "Consultor de TI",
-                content: "Já paguei multa por esquecer o DAS. Hoje recebo tudo organizado, no prazo certo. Nunca mais precisei me preocupar com isso. É exatamente o que eu precisava.",
-                img: "2"
+                name: "Eduardo Martins",
+                role: "Prestador de Serviços Corporativos",
+                content: "Perdi contrato por não conseguir emitir nota fiscal na hora. A empresa precisava e eu fiquei me enrolando no sistema, não sabia nem por onde começar. Foi aí que eu fui atrás da EasyMEI. Hoje emito nota em minutos, meu CNPJ tá em dia e consigo fechar com empresa grande sem passar vergonha.",
+                img: "/depo-eduardo.jpeg",
+                imgStyle: "object-cover"
               },
               {
-                name: "Juliana Costa",
-                role: "Social Media",
-                content: "A declaração anual que eu achava que ia ser um pesadelo foi resolvida em um dia. Me pediram os dados, eu mandei, e eles cuidaram de tudo. Simples assim.",
-                img: "5"
+                name: "Camila Rocha",
+                role: "Loja de Roupas Femininas",
+                content: "A loja cresceu rápido e eu tava completamente perdida. Não sabia o que precisava declarar, tinha medo de cair em alguma irregularidade sem saber. A EasyMEI tirou esse peso das minhas costas. Agora foco em comprar coleção, atender bem e vender — o resto eles resolvem.",
+                img: "/depo-camila.jpeg",
+                imgStyle: "object-contain bg-white"
               }
             ].map((t, i) => (
               <motion.div
@@ -712,8 +715,8 @@ export default function App() {
                 </div>
                 <p className="text-base leading-relaxed flex-1 mb-8">"{t.content}"</p>
                 <div className="flex items-center gap-3">
-                  <div className="w-11 h-11 rounded-full overflow-hidden shrink-0">
-                    <img src={`https://i.pravatar.cc/100?img=${t.img}`} alt={t.name} />
+                  <div className="w-11 h-11 rounded-full overflow-hidden shrink-0 border border-white/10">
+                    <img src={t.img} alt={t.name} className={`w-full h-full ${t.imgStyle}`} />
                   </div>
                   <div>
                     <h4 className="font-bold text-sm">{t.name}</h4>
