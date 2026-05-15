@@ -38,7 +38,7 @@ export default function PrivacidadePage() {
           <section>
             <h2 className="text-foreground font-semibold text-base mb-3">1. Quem somos</h2>
             <p>
-              A <strong className="text-foreground">EasyMei</strong> é uma plataforma de gestão burocrática para Microempreendedores Individuais (MEI), comprometida com a transparência e a proteção dos dados pessoais de seus usuários, em conformidade com a Lei Geral de Proteção de Dados (LGPD — Lei nº 13.709/2018).
+              A <strong className="text-foreground">EasyMei</strong> é uma plataforma de gestão burocrática para Microempreendedores Individuais (MEI), comprometida com a transparência e a proteção dos dados pessoais de seus usuários, em conformidade com a Lei Geral de Proteção de Dados (LGPD, Lei nº 13.709/2018).
             </p>
           </section>
 

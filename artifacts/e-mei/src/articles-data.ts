@@ -60,7 +60,7 @@ Além disso, seu CNPJ pode ficar irregular, o que impede emissão de certidões 
 
 Você pode emitir o DAS gratuitamente pelo **Portal do Empreendedor** (gov.br/mei) ou pelo app do MEI. Acesse, informe seu CPF e gere a guia do mês que deseja pagar.
 
-Com a EasyMei, você não precisa se preocupar com nada disso — a gente emite e acompanha o pagamento do seu DAS todo mês por você.
+Com a EasyMei, você não precisa se preocupar com nada disso. A gente emite e acompanha o pagamento do seu DAS todo mês por você.
     `.trim(),
   },
   {
@@ -75,13 +75,13 @@ Com a EasyMei, você não precisa se preocupar com nada disso — a gente emite 
     content: `
 ## Qual é o limite de faturamento do MEI?
 
-Em 2025, o MEI pode faturar até **R$ 130.500 por ano** — o equivalente a R$ 10.875 por mês em média.
+Em 2025, o MEI pode faturar até **R$ 130.500 por ano**, o equivalente a R$ 10.875 por mês em média.
 
 Esse limite foi atualizado com a Lei Complementar nº 204/2023, que trouxe também uma novidade importante: o **MEI Caminhoneiro**, com teto de R$ 251.600 anuais.
 
 ## Como o limite é calculado na prática?
 
-O limite é anual, não mensal. Isso significa que você pode faturar mais em um mês e menos em outro — o que importa é o total no ano.
+O limite é anual, não mensal. Isso significa que você pode faturar mais em um mês e menos em outro. O que importa é o total no ano.
 
 **Exemplo:**
 - Janeiro: R$ 5.000
@@ -100,7 +100,7 @@ Se ultrapassar em mais de 20%, o desenquadramento é **retroativo ao mês em que
 
 As melhores práticas são:
 
-1. **Anote todas as entradas** — não só notas fiscais, mas qualquer valor recebido pelo negócio
+1. **Anote todas as entradas**: não só notas fiscais, mas qualquer valor recebido pelo negócio
 2. **Some mês a mês** e compare com o acumulado do ano
 3. **Projete o restante do ano** para saber se está no caminho certo
 
@@ -146,7 +146,7 @@ A declaração é simples e pede apenas:
 - **Receita de serviços** (se presta serviços)
 - **Se teve empregado** no ano declarado
 
-Não é preciso apresentar notas fiscais ou comprovantes — você apenas informa os valores.
+Não é preciso apresentar notas fiscais ou comprovantes. Você apenas informa os valores.
 
 ## Como fazer a DASN?
 
@@ -165,7 +165,7 @@ Além da multa, o CNPJ pode ficar irregular, impedindo emissão de certidões e 
 
 ## Como regularizar se estiver em atraso?
 
-Você pode entregar a DASN com atraso a qualquer momento pelo mesmo portal. A multa é gerada automaticamente e pode ser paga via DAS. Não há outro processo — basta fazer a entrega e pagar a multa gerada.
+Você pode entregar a DASN com atraso a qualquer momento pelo mesmo portal. A multa é gerada automaticamente e pode ser paga via DAS. Não há outro processo: basta fazer a entrega e pagar a multa gerada.
 
 Com a EasyMei, a gente cuida do envio da sua DASN antes do prazo, sem você precisar lembrar de nada.
     `.trim(),
@@ -221,7 +221,7 @@ Para produtos, o processo pode ser mais complexo. Você pode usar:
 ## Dicas importantes
 
 - **Guarde as notas** emitidas para informar corretamente na DASN anual
-- **Não deixe de emitir** quando solicitado — a omissão pode gerar multas
+- **Não deixe de emitir** quando solicitado. A omissão pode gerar multas
 - O valor da nota **não gera cobrança extra** de impostos para o MEI, pois o DAS já cobre tudo
 
 Com a EasyMei, emitimos as notas fiscais pelo seu MEI sempre que você precisar, para pessoa física ou jurídica.
@@ -278,7 +278,7 @@ Acesse o Portal do Empreendedor, vá em "Alterar dados cadastrais" e atualize as
 
 ## Qual o prazo para regularizar?
 
-Não existe um prazo fixo para regularizar voluntariamente — você pode fazer a qualquer momento. Porém, MEIs com CNPJ irregular por mais de 12 meses podem ter o CNPJ cancelado de ofício pela Receita Federal.
+Não existe um prazo fixo para regularizar voluntariamente. Você pode fazer a qualquer momento, mas MEIs com CNPJ irregular por mais de 12 meses podem ter o CNPJ cancelado de ofício pela Receita Federal.
 
 Com a EasyMei, monitoramos a situação do seu CNPJ continuamente e resolvemos qualquer pendência antes que vire problema.
     `.trim(),
@@ -334,7 +334,7 @@ No fim de cada mês, faça o cálculo simples:
 
 **Lucro = Total de entradas − Total de saídas**
 
-Se o resultado for positivo, você lucrou. Se for negativo, você teve prejuízo — e precisa entender o porquê.
+Se o resultado for positivo, você lucrou. Se for negativo, você teve prejuízo. Vale entender o porquê.
 
 ## Ferramentas úteis
 
@@ -383,7 +383,7 @@ O INSS do funcionário é descontado do salário dele e repassado pelo MEI. O FG
 ## Como contratar o funcionário?
 
 1. **Registre o empregado** em Carteira de Trabalho (física ou digital, via app CTPS Digital)
-2. **Cadastre-se no eSocial** (esocial.gov.br) — obrigatório para quem tem empregado
+2. **Cadastre-se no eSocial** (esocial.gov.br), obrigatório para quem tem empregado
 3. **Faça o recolhimento** do FGTS mensalmente via FGTS Digital
 4. **Recolha o INSS** via GPS (Guia da Previdência Social) mensalmente
 
@@ -422,7 +422,7 @@ Avalie se o custo total (salário + encargos ≈ 40% a mais sobre o salário) ca
 
 Sim! Ao pagar o DAS mensalmente, o MEI contribui automaticamente para o INSS. Isso garante acesso a uma série de benefícios previdenciários.
 
-A contribuição previdenciária do MEI corresponde a **5% do salário mínimo** — em 2025, são cerca de R$ 75,90 por mês, já incluídos no valor do DAS.
+A contribuição previdenciária do MEI corresponde a **5% do salário mínimo**. Em 2025, são cerca de R$ 75,90 por mês, já incluídos no valor do DAS.
 
 ## Quais benefícios o MEI tem direito?
 
@@ -461,7 +461,7 @@ Para ter esse direito, é necessário complementar a contribuição para 20% do 
 
 ## Dica importante
 
-Mantenha o DAS em dia sem interrupções. Meses sem pagamento podem quebrar a carência necessária para acessar os benefícios — e você precisaria recomeçar a contagem.
+Mantenha o DAS em dia sem interrupções. Meses sem pagamento podem quebrar a carência necessária para acessar os benefícios, e você precisaria recomeçar a contagem.
 
 Com a EasyMei, seu DAS é pago em dia todo mês, garantindo sua cobertura previdenciária sem interrupções.
     `.trim(),

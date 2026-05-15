@@ -815,12 +815,12 @@ export default function App() {
             >
               <p className="text-primary text-sm font-semibold uppercase tracking-widest mb-4">Sobre a EasyMei</p>
               <h2 className="text-2xl md:text-4xl font-light tracking-wide leading-snug mb-6">
-                Mais do que assessoria —{" "}
+                Mais do que assessoria,{" "}
                 <span className="text-primary">parceiros da sua jornada.</span>
               </h2>
               <div className="w-12 h-px bg-primary mb-6" />
               <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
-                Na EasyMei, acreditamos que o microempreendedor deve focar no crescimento do seu negócio — e não perder tempo com burocracias.
+                Na EasyMei, acreditamos que o microempreendedor deve focar no crescimento do seu negócio, sem perder tempo com burocracias.
               </p>
             </motion.div>
 
@@ -832,7 +832,7 @@ export default function App() {
               className="space-y-5 text-sm md:text-base text-muted-foreground leading-relaxed"
             >
               <p>
-                Nossa missão é simplificar a rotina do MEI através de <strong className="text-foreground">organização financeira, planejamento estratégico, consultoria personalizada</strong> e suporte completo nas obrigações do dia a dia — emissão de DAS, acompanhamento fiscal e orientação empresarial.
+                Nossa missão é simplificar a rotina do MEI através de <strong className="text-foreground">organização financeira, planejamento estratégico, consultoria personalizada</strong> e suporte completo nas obrigações do dia a dia: emissão de DAS, acompanhamento fiscal e orientação empresarial.
               </p>
               <p>
                 Sabemos que muitos empreendedores começam sozinhos e enfrentam dificuldades para manter tudo em ordem. Por isso, criamos uma solução prática, acessível e humanizada, ajudando o MEI a ter mais <strong className="text-foreground">controle, segurança e tranquilidade</strong> para crescer de forma sustentável.
