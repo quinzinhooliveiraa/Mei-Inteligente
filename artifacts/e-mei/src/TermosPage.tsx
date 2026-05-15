@@ -105,7 +105,7 @@ export default function TermosPage() {
             <h2 className="text-foreground font-semibold text-base mb-3">9. Contato</h2>
             <p>
               Dúvidas sobre estes Termos podem ser enviadas para{" "}
-              <a href="https://wa.me/5533912406270" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+              <a href="https://wa.me/553391240627" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
                 nosso WhatsApp
               </a>{" "}
               ou pelo Instagram{" "}

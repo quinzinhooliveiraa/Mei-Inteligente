@@ -228,7 +228,7 @@ export default function ArticlePage() {
                   Diagnóstico gratuito <ArrowRight size={14} />
                 </button>
                 <a
-                  href="https://wa.me/5533912406270"
+                  href="https://wa.me/553391240627"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-2 w-full inline-flex items-center justify-center gap-2 border border-border text-muted-foreground font-medium px-5 py-2.5 rounded-full hover:border-primary/50 hover:text-primary transition-colors text-sm"

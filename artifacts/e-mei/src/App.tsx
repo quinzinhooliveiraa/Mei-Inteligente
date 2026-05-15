@@ -262,7 +262,7 @@ export default function App() {
       "name": "EasyMei",
       "description": "Gestão burocrática inteligente para Microempreendedores Individuais (MEI).",
       "url": "https://easymei.com.br",
-      "telephone": "+5533912406270",
+      "telephone": "+553391240627",
       "priceRange": "R$0 - R$29,90/mês",
       "areaServed": { "@type": "Country", "name": "Brasil" },
       "sameAs": ["https://www.instagram.com/easy.mei/"]
@@ -790,7 +790,7 @@ export default function App() {
               <Calendar size={18} /> Fazer meu diagnóstico gratuito
             </Button>
             <a
-              href="https://wa.me/5533912406270"
+              href="https://wa.me/553391240627"
               target="_blank"
               rel="noopener noreferrer"
               className="h-14 px-8 text-lg font-semibold rounded-full border border-border hover:border-primary hover:text-primary transition-colors inline-flex items-center gap-2 text-muted-foreground"
@@ -864,7 +864,7 @@ export default function App() {
                   <Instagram size={20} />
                 </a>
                 <a
-                  href="https://wa.me/5533912406270"
+                  href="https://wa.me/553391240627"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-primary transition-colors"
@@ -897,7 +897,7 @@ export default function App() {
               <h4 className="font-bold mb-4 text-sm">Empresa</h4>
               <ul className="space-y-3 text-sm text-muted-foreground">
                 <li><button onClick={() => document.getElementById("sobre")?.scrollIntoView({ behavior: "smooth" })} className="hover:text-primary transition-colors text-left">Sobre nós</button></li>
-                <li><a href="https://wa.me/5533912406270" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Contato</a></li>
+                <li><a href="https://wa.me/553391240627" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Contato</a></li>
                 <li><a href="/termos" className="hover:text-primary transition-colors">Termos de Uso</a></li>
                 <li><a href="/privacidade" className="hover:text-primary transition-colors">Privacidade</a></li>
               </ul>

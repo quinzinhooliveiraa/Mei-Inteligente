@@ -105,7 +105,7 @@ export default function PrivacidadePage() {
             </ul>
             <p className="mt-2">
               Para exercer qualquer desses direitos, entre em contato pelo{" "}
-              <a href="https://wa.me/5533912406270" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+              <a href="https://wa.me/553391240627" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
                 WhatsApp
               </a>.
             </p>
@@ -129,7 +129,7 @@ export default function PrivacidadePage() {
             <h2 className="text-foreground font-semibold text-base mb-3">10. Contato</h2>
             <p>
               Para dúvidas sobre esta Política ou sobre o tratamento dos seus dados, fale conosco pelo{" "}
-              <a href="https://wa.me/5533912406270" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+              <a href="https://wa.me/553391240627" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
                 WhatsApp
               </a>{" "}
               ou pelo Instagram{" "}
