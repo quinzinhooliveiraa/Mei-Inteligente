@@ -885,21 +885,11 @@ export default function App() {
             </div>
 
             <div>
-              <h4 className="font-bold mb-4 text-sm">Para você</h4>
-              <ul className="space-y-3 text-sm text-muted-foreground">
-                <li><a href="/artigos" className="hover:text-primary transition-colors">Blog do MEI</a></li>
-                <li><a href="/artigos" className="hover:text-primary transition-colors">Tire suas dúvidas</a></li>
-                <li><a href="/artigos" className="hover:text-primary transition-colors">Guia do MEI iniciante</a></li>
-              </ul>
-            </div>
-
-            <div>
               <h4 className="font-bold mb-4 text-sm">Empresa</h4>
               <ul className="space-y-3 text-sm text-muted-foreground">
                 <li><button onClick={() => document.getElementById("sobre")?.scrollIntoView({ behavior: "smooth" })} className="hover:text-primary transition-colors text-left">Sobre nós</button></li>
                 <li><a href="https://wa.me/5533912406270" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Contato</a></li>
-                <li><a href="/termos" className="hover:text-primary transition-colors">Termos de Uso</a></li>
-                <li><a href="/privacidade" className="hover:text-primary transition-colors">Privacidade</a></li>
+                <li><a href="https://www.instagram.com/easy.mei/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Instagram</a></li>
               </ul>
             </div>
           </div>
