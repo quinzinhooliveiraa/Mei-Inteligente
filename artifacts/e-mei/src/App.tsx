@@ -365,19 +365,19 @@ export default function App() {
             <motion.div variants={fadeInUp} className="mt-8 flex items-center gap-3 text-sm text-muted-foreground">
               <div className="flex -space-x-2 shrink-0">
                 {[
-                  "/foto-cliente-1.jpeg",
-                  "/foto-cliente-2.jpeg",
-                  "/foto-cliente-3.jpeg",
-                ].map((src, i) => (
+                  { src: "/foto-cliente-1.jpeg", pos: "object-top" },
+                  { src: "/foto-cliente-2.jpeg", pos: "object-top" },
+                  { src: "/foto-cliente-3.jpeg", pos: "object-top" },
+                ].map((u, i) => (
                   <div
                     key={i}
                     className="w-8 h-8 rounded-full border-2 border-background overflow-hidden"
                   >
-                    <img src={src} alt="cliente e-mei" className="w-full h-full object-cover" />
+                    <img src={u.src} alt="cliente e-mei" className={`w-full h-full object-cover ${u.pos}`} />
                   </div>
                 ))}
               </div>
-              <p>Mais de <strong className="text-foreground">200 MEIs</strong> com a burocracia resolvida todo mês.</p>
+              <p>Mais de <strong className="text-foreground">37 MEIs</strong> com a burocracia resolvida todo mês.</p>
             </motion.div>
           </motion.div>
 
