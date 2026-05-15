@@ -591,45 +591,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* Sobre a EasyMei */}
-      <section id="sobre" className="py-16 md:py-24">
-        <div className="container mx-auto px-6 md:px-12">
-          <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center max-w-5xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, x: -24 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.6 }}
-            >
-              <p className="text-primary text-sm font-semibold uppercase tracking-widest mb-4">Sobre a EasyMei</p>
-              <h2 className="text-2xl md:text-4xl font-light tracking-wide leading-snug mb-6">
-                Mais do que assessoria —{" "}
-                <span className="text-primary">parceiros da sua jornada.</span>
-              </h2>
-              <div className="w-12 h-px bg-primary mb-6" />
-              <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
-                Na EasyMei, acreditamos que o microempreendedor deve focar no crescimento do seu negócio — e não perder tempo com burocracias.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 24 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.6, delay: 0.15 }}
-              className="space-y-5 text-sm md:text-base text-muted-foreground leading-relaxed"
-            >
-              <p>
-                Nossa missão é simplificar a rotina do MEI através de <strong className="text-foreground">organização financeira, planejamento estratégico, consultoria personalizada</strong> e suporte completo nas obrigações do dia a dia — emissão de DAS, acompanhamento fiscal e orientação empresarial.
-              </p>
-              <p>
-                Sabemos que muitos empreendedores começam sozinhos e enfrentam dificuldades para manter tudo em ordem. Por isso, criamos uma solução prática, acessível e humanizada, ajudando o MEI a ter mais <strong className="text-foreground">controle, segurança e tranquilidade</strong> para crescer de forma sustentável.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
       {/* Diagnóstico — o primeiro passo personalizado */}
       <section id="agendar" className="py-16 md:py-24 bg-secondary/30">
         <div className="container mx-auto px-6 md:px-12">
@@ -839,6 +800,45 @@ export default function App() {
             </a>
           </div>
           <p className="mt-4 text-sm text-muted-foreground">Gratuito. Sem compromisso. Sem enrolação.</p>
+        </div>
+      </section>
+
+      {/* Sobre a EasyMei */}
+      <section id="sobre" className="py-16 md:py-24 border-t border-border">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center max-w-5xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, x: -24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.6 }}
+            >
+              <p className="text-primary text-sm font-semibold uppercase tracking-widest mb-4">Sobre a EasyMei</p>
+              <h2 className="text-2xl md:text-4xl font-light tracking-wide leading-snug mb-6">
+                Mais do que assessoria —{" "}
+                <span className="text-primary">parceiros da sua jornada.</span>
+              </h2>
+              <div className="w-12 h-px bg-primary mb-6" />
+              <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
+                Na EasyMei, acreditamos que o microempreendedor deve focar no crescimento do seu negócio — e não perder tempo com burocracias.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+              className="space-y-5 text-sm md:text-base text-muted-foreground leading-relaxed"
+            >
+              <p>
+                Nossa missão é simplificar a rotina do MEI através de <strong className="text-foreground">organização financeira, planejamento estratégico, consultoria personalizada</strong> e suporte completo nas obrigações do dia a dia — emissão de DAS, acompanhamento fiscal e orientação empresarial.
+              </p>
+              <p>
+                Sabemos que muitos empreendedores começam sozinhos e enfrentam dificuldades para manter tudo em ordem. Por isso, criamos uma solução prática, acessível e humanizada, ajudando o MEI a ter mais <strong className="text-foreground">controle, segurança e tranquilidade</strong> para crescer de forma sustentável.
+              </p>
+            </motion.div>
+          </div>
         </div>
       </section>
 
